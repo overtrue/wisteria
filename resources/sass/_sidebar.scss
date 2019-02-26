@@ -1,0 +1,25 @@
+.docs-index h2, li {
+  padding-bottom: 0.25rem;
+}
+
+.docs-index {
+  h2 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    border-bottom-width: 1px;
+    border-style: dotted;
+    font-size: .875rem;
+    color: #8795a1;
+    text-transform: uppercase;
+  }
+  > ul {
+    list-style: none;
+    padding: 0;
+    > li > ul {
+      list-style: none;
+      padding: 0;
+      line-height: 1.5;
+      font-size: 0.875rem;
+    }
+  }
+}

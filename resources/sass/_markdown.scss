@@ -1,0 +1,37 @@
+.markdown-body {
+  line-height: 1.5;
+  a {
+    color: #2779bd;
+    text-decoration: none;
+    &:hover {
+      color: #2779bd;
+      text-decoration: underline;
+    }
+  }
+  blockquote {
+    background-color: #f8fafc;
+    border-color: #dae1e7;
+    border-left-width: 8px;
+  }
+  table {
+    display: block;
+    overflow: auto;
+    td, th {
+      padding: 1rem .5rem;
+      border-width: 1px;
+    }
+    tr:nth-child(2n) {
+      background-color: #f8fafc;
+    }
+  }
+  .token {
+    &.deleted {
+      color: #b31d28;
+      background-color: #ffeef0;
+    }
+    &.inserted {
+      color: #22863a;
+      background-color: #f0fff4;
+    }
+  }
+}

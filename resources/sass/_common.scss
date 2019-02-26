@@ -1,0 +1,76 @@
+a {
+  color: #22292f;
+  text-decoration: none;
+  background-color: transparent;
+
+  &:hover {
+    color: #2779bd;
+  }
+
+  &.is-active {
+    cursor: default;
+    font-weight: 600;
+    color: #3490dc;
+  }
+}
+
+h1, h2, h3, h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+p, ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+li {
+  padding-top: .25rem;
+}
+
+
+
+.container {
+  width: 100%;
+}
+
+.pin-22 {
+  top: 5.5rem;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 576px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 992px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 992px) {
+  .lg\:max-h-\(screen-22\) {
+    max-height: calc(100vh - 5.5rem);
+  }
+}
+
+@media (min-width: 576px) {
+  blockquote > div {
+    display: block;
+  }
+}
