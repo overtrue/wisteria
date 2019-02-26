@@ -1,0 +1,17 @@
+{
+    "name": "overtrue\/wisteria",
+    "description": "Beautiful document tool for your project.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "overtrue",
+            "email": "anzhengchao@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Overtrue\\Wisteria\\": "src"
+        }
+    }
+}
