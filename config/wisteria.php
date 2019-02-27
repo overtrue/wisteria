@@ -8,7 +8,10 @@ return [
         'path' => '/storages/docs',
 
         // Index page file.
-        'home' => 'readme.md',
+        'index' => 'README.md',
+
+        // Homepage
+        'home' => 'overview.md',
 
         // Versions
         'versions' => [

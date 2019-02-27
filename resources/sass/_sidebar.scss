@@ -15,11 +15,17 @@
   > ul {
     list-style: none;
     padding: 0;
-    > li > ul {
-      list-style: none;
-      padding: 0;
-      line-height: 1.5;
-      font-size: 0.875rem;
+    > li {
+      a.is-active {
+        color: #2779bd;
+        font-weight: bold;
+      }
+      > ul {
+        list-style: none;
+        padding: 0;
+        line-height: 1.5;
+        font-size: 0.875rem;
+      }
     }
   }
 }

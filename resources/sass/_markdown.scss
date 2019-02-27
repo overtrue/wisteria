@@ -11,7 +11,40 @@
   blockquote {
     background-color: #f8fafc;
     border-color: #dae1e7;
-    border-left-width: 8px;
+    border-left-width: 4px;
+
+    a {
+      font-weight: 500;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    &.info {
+      border-left-width: 0;
+      background-color: #3490dc;
+      border-color: #2779bd;
+      color: #fff;
+      a {
+        color: #fff;
+      }
+      .flag, pre, code {
+        background-color: #2779bd;
+      }
+    }
+    &.warning {
+      border-left-width: 0;
+      background-color: #f6993f;
+      border-color: #de751f;
+      color: #fff;
+      a {
+        color: #fff;
+      }
+      .flag, pre, code {
+        background-color: #de751f;
+      }
+    }
   }
   table {
     display: block;

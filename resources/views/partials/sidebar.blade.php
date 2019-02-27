@@ -1,4 +1,4 @@
-<nav id="nav" class="hidden w-full lg:block lg:w-1/4 xl:w-1/5 px-6 pt-4 lg:border-r z-40 lg:max-h-(screen-22) pin-22 lg:sticky">
+<nav id="nav" class="hidden overflow-hidden w-full h-full lg:block lg:w-1/4 xl:w-1/5 px-6 pt-4 lg:border-r z-40 lg:max-h-(screen-22) pin-22 lg:sticky">
     <div class="flex -mx-1 mt-2 mb-4">
         @foreach($versions as $version)
             @if($version === $currentVersion)
