@@ -1,6 +1,6 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/1472352/53495897-d78b7300-3adb-11e9-845d-1131fdf4d14a.png" height="60" /></p>
 
-<p align="center"> Beautiful document tool for your project..</p>
+<p align="center"> Beautiful document tool for your project.</p>
 
 
 ## Installing
