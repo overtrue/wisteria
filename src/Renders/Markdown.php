@@ -2,6 +2,7 @@
 
 namespace Overtrue\Wisteria\Renders;
 
+use Overtrue\LaravelEmoji\Emoji;
 use Overtrue\Wisteria\Contracts\Renderer;
 
 /**
@@ -31,6 +32,6 @@ class Markdown implements Renderer
      */
     public function render(string $content): string
     {
-        return $this->markdown->text($content);
+        return $this->markdown->text(Emoji::shortnameToUnicode($content));
     }
 }

@@ -11,14 +11,15 @@
   },
   "dependencies": {
     "cross-env": "^5.2.0",
+    "css-loader": "^2.1.0",
     "laravel-mix": "^4.0.14",
     "perfect-scrollbar": "^1.4.0",
-    "sass-loader": "^7.1.0",
-    "tailwindcss": "^0.7.4",
-    "vue": "^2.6.7",
     "prismjs": "^1.15.0",
     "resolve-url-loader": "2.3.1",
     "sass": "^1.17.2",
+    "sass-loader": "^7.1.0",
+    "tailwindcss": "^0.7.4",
+    "vue": "^2.6.7",
     "vue-template-compiler": "^2.6.7"
   }
 }

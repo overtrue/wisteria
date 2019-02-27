@@ -6357,6 +6357,11 @@ li {
   margin-bottom: 0;
 }
 
+.markdown-body blockquote ul {
+  padding-left: 2em;
+  margin-bottom: 0;
+}
+
 .markdown-body blockquote.info {
   border-left-width: 0;
   background-color: #3490dc;
