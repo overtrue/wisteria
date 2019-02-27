@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the overtrue/wisteria.
+ *
+ * (c) overtrue <anzhengchao@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled.
+ */
+
 namespace Overtrue\Wisteria;
 
 use Illuminate\Support\Facades\Route;
@@ -11,7 +19,7 @@ use Overtrue\Wisteria\Contracts\Renderer;
 use Overtrue\Wisteria\Renders\Markdown;
 
 /**
- * Class WisteriaServiceProvider
+ * Class WisteriaServiceProvider.
  */
 class WisteriaServiceProvider extends ServiceProvider
 {
@@ -40,7 +48,7 @@ class WisteriaServiceProvider extends ServiceProvider
         }
 
         Route::namespace(__NAMESPACE__.'\Http\Controllers')
-            ->group(function(){
+            ->group(function () {
                 $route = config('wisteria.route', 'docs');
 
                 Route::get($route, 'DocsController@index')->name('wisteria.docs.index');
@@ -64,30 +72,30 @@ class WisteriaServiceProvider extends ServiceProvider
     protected function registerAssets(): void
     {
         $this->publishes([
-            __DIR__ . '/../public' => public_path('vendor/wisteria'),
+            __DIR__.'/../public' => public_path('vendor/wisteria'),
         ], 'wisteria-public');
     }
 
     protected function registerViews(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'wisteria');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'wisteria');
         $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/wisteria'),
+            __DIR__.'/../resources/views' => resource_path('views/vendor/wisteria'),
         ], 'wisteria-views');
     }
 
     protected function registerTranslations(): void
     {
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'wisteria');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'wisteria');
         $this->publishes([
-            __DIR__ . '/../resources/lang' => resource_path('lang/vendor/wisteria'),
+            __DIR__.'/../resources/lang' => resource_path('lang/vendor/wisteria'),
         ], 'wisteria-lang');
     }
 
     protected function registerConfig(): void
     {
         $this->publishes([
-            __DIR__ . '/../config/wisteria.php' => \config_path('wisteria.php'),
+            __DIR__.'/../config/wisteria.php' => \config_path('wisteria.php'),
         ], 'wisteria-config');
     }
 

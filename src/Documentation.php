@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the overtrue/wisteria.
+ *
+ * (c) overtrue <anzhengchao@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled.
+ */
+
 namespace Overtrue\Wisteria;
 
 use Illuminate\Contracts\Cache\Repository as Cache;
@@ -10,7 +18,7 @@ use Overtrue\Wisteria\Exceptions\PageNotFoundException;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
- * Class Documentation
+ * Class Documentation.
  */
 class Documentation
 {
@@ -35,7 +43,6 @@ class Documentation
      * @param \Illuminate\Filesystem\Filesystem      $filesystem
      * @param \Overtrue\Wisteria\Contracts\Renderer  $renderer
      * @param \Illuminate\Contracts\Cache\Repository $cache
-     *
      */
     public function __construct(Filesystem $filesystem, Renderer $renderer, Cache $cache)
     {
@@ -102,6 +109,7 @@ class Documentation
      * @param string $version
      *
      * @return resource|null
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function content(string $version, string $page)
@@ -110,7 +118,12 @@ class Documentation
             throw new PageNotFoundException(\sprintf("Page '%s' of version '%s' not found.", $page, $version));
         }
 
-        return $this->filesystem->get($this->path($version, $page));
+        return $this->cache->remember(
+                \sprintf('docs.%s.%s', $version, $page),
+                config('wisteria.cache.ttl'),
+                function () use ($version, $page) {
+                    return $this->filesystem->get($this->path($version, $page));
+                });
     }
 
     /**

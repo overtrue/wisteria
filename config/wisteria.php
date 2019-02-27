@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the overtrue/wisteria.
+ *
+ * (c) overtrue <anzhengchao@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled.
+ */
+
 return [
     'route' => '/docs',
 
@@ -20,24 +28,24 @@ return [
         'default_version' => '1.0',
 
         // Docs repository
-        'repository'   => [
+        'repository' => [
             'provider' => 'github',
-            'url'      => 'https://github.com/overtrue/wisteria',
+            'url' => 'https://github.com/overtrue/wisteria',
         ],
     ],
 
     // SEO configs
-    'seo'                 => [
-        'author'          => 'Wisteria',
-        'description'     => '',
-        'keywords'        => '',
-        'og'              => [
-            'title'       => '',
-            'type'        => 'article',
-            'url'         => '',
-            'image'       => '',
+    'seo' => [
+        'author' => 'Wisteria',
+        'description' => '',
+        'keywords' => '',
+        'og' => [
+            'title' => '',
+            'type' => 'article',
+            'url' => '',
+            'image' => '',
             'description' => '',
-        ]
+        ],
     ],
 
     'plugins' => [
