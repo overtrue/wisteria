@@ -22,6 +22,6 @@ return PhpCsFixer\Config::create()
     ->setFinder(
         PhpCsFixer\Finder::create()
             ->exclude('vendor')
-            ->in(__DIR__)
+            ->in(__DIR__.'/src')
     )
 ;

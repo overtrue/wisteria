@@ -1,25 +1,17 @@
 <?php
 
-/*
- * This file is part of the overtrue/wisteria.
- *
- * (c) overtrue <anzhengchao@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled.
- */
-
 return [
     'route' => '/docs',
 
     'docs' => [
         // Storage path of docs files.
-        'path' => '/storages/docs',
+        'path'  => '/resource/docs',
 
         // Index page file.
         'index' => 'README.md',
 
         // Homepage
-        'home' => 'overview.md',
+        'home'  => 'overview.md',
 
         // Versions
         'versions' => [
