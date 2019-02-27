@@ -1,6 +1,6 @@
-<h1 align="center"> wisteria </h1>
+<p align="center"><img src="https://user-images.githubusercontent.com/1472352/53495897-d78b7300-3adb-11e9-845d-1131fdf4d14a.png" height="60" /></p>
 
-<p align="center"> Beautiful document tool for your project..</p>
+<p align="center"> Beautiful document tool for your project.</p>
 
 
 ## Installing
@@ -11,7 +11,25 @@ $ composer require overtrue/wisteria -vvv
 
 ## Usage
 
-TODO
+### Installation
+
+```php
+$ composer require overtrue/wisteria -vvv
+```
+
+Publish config and required assets:
+
+```php
+$ php artisan wisteria:install
+```
+
+Update config file `config/wisteria.php` with right repository url of your docs, Then init the docs files:
+
+```php
+$ php artisan wisteria:refresh
+```
+
+Done. 
 
 ## Contributing
 
