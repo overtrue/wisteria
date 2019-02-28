@@ -15542,6 +15542,7 @@ var app = new Vue({
       });
     },
     activateCurrentSection: function activateCurrentSection() {
+      var nav = document.querySelector('#nav');
       var current = document.querySelector('.docs-index ul li a[href="' + window.location.pathname + '"]');
 
       if (current) {
@@ -15549,7 +15550,9 @@ var app = new Vue({
         current.parentElement.classList.add('is-active');
       }
 
-      document.querySelector('#nav').scrollTop = current.getBoundingClientRect().top - 300;
+      if (current.getBoundingClientRect().top >= window.screen.height * 0.4) {
+        nav.scrollTop = current.getBoundingClientRect().top - window.screen.height * 0.4;
+      }
     },
     replaceQuoteIcons: function replaceQuoteIcons() {
       document.querySelectorAll('.markdown-body blockquote').forEach(function (blockquote) {

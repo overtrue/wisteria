@@ -6261,6 +6261,10 @@ li {
   top: 5.5rem;
 }
 
+.min-h-\(screen-16\) {
+  min-height: calc(100vh - 4rem);
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 576px;
@@ -6489,8 +6493,7 @@ pre {
   border-width: 1px;
   border-radius: .25rem;
   padding: .75rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+  margin: .5em 0;
   overflow-x: auto;
 }
 
@@ -6632,7 +6635,7 @@ pre[class*=language-] {
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  line-height: 1.7;
+  line-height: 2;
   font-size: 12px;
   -moz-tab-size: 4;
     -o-tab-size: 4;
@@ -6665,19 +6668,10 @@ code[class*=language-] ::selection {
   }
 }
 
-/* Code blocks */
-
-pre[class*=language-] {
-  padding: 1em;
-  margin: 10px 0 20px;
-  overflow: auto;
-}
-
 :not(pre) > code[class*=language-],
 pre[class*=language-] {
-  background: rgba(238, 238, 238, .35);
   border-radius: 3px;
-  padding: 10px;
+  padding: 1em;
 }
 
 /* Inline code */
@@ -6828,8 +6822,6 @@ pre.line-numbers > code {
 }
 
 .dark-code pre[class*=language-] {
-  padding: 1em;
-  margin: .5em 0;
   overflow: auto;
   border-radius: .3em;
 }

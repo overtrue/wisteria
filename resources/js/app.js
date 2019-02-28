@@ -3,15 +3,15 @@ window.Vue = require('vue')
 import Prism from 'prismjs'
 import PerfectScrollbar from 'perfect-scrollbar'
 
-require('prismjs/components/prism-markup-templating.js');
-require('prismjs/components/prism-bash.js');
-require('prismjs/components/prism-git.js');
-require('prismjs/components/prism-javascript.js');
-require('prismjs/components/prism-json.js');
-require('prismjs/components/prism-markup.js');
-require('prismjs/components/prism-php.js');
-require('prismjs/components/prism-sass.js');
-require('prismjs/components/prism-scss.js');
+require('prismjs/components/prism-markup-templating.js')
+require('prismjs/components/prism-bash.js')
+require('prismjs/components/prism-git.js')
+require('prismjs/components/prism-javascript.js')
+require('prismjs/components/prism-json.js')
+require('prismjs/components/prism-markup.js')
+require('prismjs/components/prism-php.js')
+require('prismjs/components/prism-sass.js')
+require('prismjs/components/prism-scss.js')
 
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
@@ -25,27 +25,29 @@ const app = new Vue({
     this.activateCurrentSection()
   },
   methods: {
-    reformatContent() {
+    reformatContent () {
       document.querySelectorAll('.markdown-body blockquote blockquote').forEach((blockquote) => {
         blockquote.outerHTML = blockquote.innerHTML
       })
     },
-    createSmoothSidebar() {
+    createSmoothSidebar () {
       new PerfectScrollbar('#nav', {
         wheelSpeed: 2,
         wheelPropagation: true,
         minScrollbarLength: 20
       })
     },
-    activateCurrentSection() {
-        let current = document.querySelector('.docs-index ul li a[href="' + window.location.pathname + '"]');
+    activateCurrentSection () {
+      let nav = document.querySelector('#nav')
+      let current = document.querySelector('.docs-index ul li a[href="' + window.location.pathname + '"]')
 
-        if (current) {
-          current.classList.add('is-active')
-          current.parentElement.classList.add('is-active')
-        }
-
-        document.querySelector('#nav').scrollTop = current.getBoundingClientRect().top - 300
+      if (current) {
+        current.classList.add('is-active')
+        current.parentElement.classList.add('is-active')
+      }
+      if (current.getBoundingClientRect().top >= window.screen.height * 0.4) {
+        nav.scrollTop = current.getBoundingClientRect().top - window.screen.height * 0.4
+      }
     },
     replaceQuoteIcons () {
       document.querySelectorAll('.markdown-body blockquote').forEach(function (blockquote) {
