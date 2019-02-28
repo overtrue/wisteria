@@ -44,6 +44,8 @@ const app = new Vue({
           current.classList.add('is-active')
           current.parentElement.classList.add('is-active')
         }
+
+        document.querySelector('#nav').scrollTop = current.getBoundingClientRect().top - 300
     },
     replaceQuoteIcons () {
       document.querySelectorAll('.markdown-body blockquote').forEach(function (blockquote) {

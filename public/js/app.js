@@ -15548,6 +15548,8 @@ var app = new Vue({
         current.classList.add('is-active');
         current.parentElement.classList.add('is-active');
       }
+
+      document.querySelector('#nav').scrollTop = current.getBoundingClientRect().top - 300;
     },
     replaceQuoteIcons: function replaceQuoteIcons() {
       document.querySelectorAll('.markdown-body blockquote').forEach(function (blockquote) {
@@ -15591,8 +15593,8 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/overtrue/www/wisteria/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/overtrue/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/artisan/www/wisteria/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/artisan/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
