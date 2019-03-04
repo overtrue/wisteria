@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>{{ $title }} | {{ config('app.name') }}</title>
     @include('wisteria::partials.meta')
+    @stack('styles')
 </head>
 <body>
 <div id="app">
@@ -22,5 +23,6 @@
     </div>
 </div>
 <script src="{{ asset('vendor/wisteria/js/app.js') }}"></script>
+@stack('scripts')
 </body>
 </html>

@@ -12,6 +12,7 @@
   "dependencies": {
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
+    "docsearch.js": "^2.6.2",
     "laravel-mix": "^4.0.14",
     "perfect-scrollbar": "^1.4.0",
     "prismjs": "^1.15.0",

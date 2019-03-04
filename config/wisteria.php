@@ -44,6 +44,13 @@ return [
         'google-analytics' => [
             // 'id' => 'UA-XXXXXXXX-1'
         ],
+
+        // Algolia Docsearch
+        'docsearch' => [
+            //'api_key' => '',
+            //'index_name' => '',
+            //'placeholder' => 'Search',
+        ],
     ],
 
     'cache' => [

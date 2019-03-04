@@ -4,6 +4,9 @@
             <a href="{{ url('/') }}">
                 <img src="{{ asset('vendor/wisteria/img/logo.svg') }}" alt="Logo" style="height: 30px" />
             </a>
+            @if(config('wisteria.plugins.docsearch.api_key'))
+                @include('wisteria::plugins.docsearch')
+            @endif
             <div id="nav-open" class="text-grey-dark lg:hidden">
                 <svg role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current w-6 h-6">
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>

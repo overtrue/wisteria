@@ -2,16 +2,17 @@ window.Vue = require('vue')
 
 import Prism from 'prismjs'
 import PerfectScrollbar from 'perfect-scrollbar'
+import docsearch from 'docsearch.js/dist/cdn/docsearch.js'
 
-require('prismjs/components/prism-markup-templating.js');
-require('prismjs/components/prism-bash.js');
-require('prismjs/components/prism-git.js');
-require('prismjs/components/prism-javascript.js');
-require('prismjs/components/prism-json.js');
-require('prismjs/components/prism-markup.js');
-require('prismjs/components/prism-php.js');
-require('prismjs/components/prism-sass.js');
-require('prismjs/components/prism-scss.js');
+require('prismjs/components/prism-markup-templating.js')
+require('prismjs/components/prism-bash.js')
+require('prismjs/components/prism-git.js')
+require('prismjs/components/prism-javascript.js')
+require('prismjs/components/prism-json.js')
+require('prismjs/components/prism-markup.js')
+require('prismjs/components/prism-php.js')
+require('prismjs/components/prism-sass.js')
+require('prismjs/components/prism-scss.js')
 
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
@@ -22,6 +23,7 @@ const app = new Vue({
     this.reformatContent()
     this.replaceQuoteIcons()
     this.createSmoothSidebar()
+    this.initDocSearch()
     this.activateCurrentSection()
   },
   methods: {
@@ -44,6 +46,19 @@ const app = new Vue({
           current.classList.add('is-active')
           current.parentElement.classList.add('is-active')
         }
+    },
+    initDocSearch() {
+      docsearch({
+        // Your apiKey and indexName will be given to you once
+        // we create your config
+        apiKey: '25626fae796133dc1e734c6bcaaeac3c',
+        indexName: 'docsearch',
+        // Replace inputSelector with a CSS selector
+        // matching your search input
+        inputSelector: '#search-input',
+        // Set debug to true if you want to inspect the dropdown
+        debug: false
+      })
     },
     replaceQuoteIcons () {
       document.querySelectorAll('.markdown-body blockquote').forEach(function (blockquote) {
