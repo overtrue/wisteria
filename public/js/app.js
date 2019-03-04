@@ -25677,7 +25677,7 @@ var app = new Vue({
     },
     activateCurrentSection: function activateCurrentSection() {
       var nav = document.querySelector('#nav');
-      var current = document.querySelector('.docs-index ul li a[href="' + window.location.pathname + '"]');
+      var current = document.querySelector('.docs-index ul li a[href="' + WITERIA_FULL_URL + '"]');
 
       if (current) {
         current.classList.add('is-active');
@@ -25692,8 +25692,8 @@ var app = new Vue({
       docsearch_js_dist_cdn_docsearch_js__WEBPACK_IMPORTED_MODULE_2___default()({
         // Your apiKey and indexName will be given to you once
         // we create your config
-        apiKey: '25626fae796133dc1e734c6bcaaeac3c',
-        indexName: 'docsearch',
+        apiKey: WISTERIA_DOCS_DOCSEARCH_API_KEY,
+        indexName: WISTERIA_DOCS_DOCSEARCH_INDEX_NAME,
         // Replace inputSelector with a CSS selector
         // matching your search input
         inputSelector: '#search-input',
@@ -25743,8 +25743,8 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/artisan/www/wisteria/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/artisan/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/overtrue/www/wisteria/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/overtrue/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

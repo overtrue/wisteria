@@ -41,7 +41,7 @@ const app = new Vue({
     },
     activateCurrentSection () {
       let nav = document.querySelector('#nav')
-      let current = document.querySelector('.docs-index ul li a[href="' + window.location.pathname + '"]')
+      let current = document.querySelector('.docs-index ul li a[href="' + WITERIA_FULL_URL + '"]')
 
       if (current) {
         current.classList.add('is-active')
@@ -55,8 +55,8 @@ const app = new Vue({
       docsearch({
         // Your apiKey and indexName will be given to you once
         // we create your config
-        apiKey: '25626fae796133dc1e734c6bcaaeac3c',
-        indexName: 'docsearch',
+        apiKey: WISTERIA_DOCS_DOCSEARCH_API_KEY,
+        indexName: WISTERIA_DOCS_DOCSEARCH_INDEX_NAME,
         // Replace inputSelector with a CSS selector
         // matching your search input
         inputSelector: '#search-input',

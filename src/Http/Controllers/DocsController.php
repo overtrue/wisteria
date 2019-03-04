@@ -52,6 +52,7 @@ class DocsController
             'currentVersion' => $version,
             'index' => $this->docs->index($version),
             'versions' => config('wisteria.docs.versions'),
+            'fullUrl' => \sprintf('%s/%s/%s', \config('wisteria.route'), $version, $page),
             'editUrl' => \sprintf('%s/edit/%s/%s.md', \config('wisteria.docs.repository.url'), $version, $page),
             'canonical' => sprintf('%/%s/%s', config('wisteria.docs.path'), config('wisteria.docs.default_version'), $page),
         ];

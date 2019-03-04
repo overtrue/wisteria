@@ -24,3 +24,8 @@
 <meta name="theme-color" content="#9561E2">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Documentation for {{ config('app.name') }}.">
+<script>
+    var WISTERIA_DOCS_PAGE = '{{ $page }}'
+    var WISTERIA_DOCS_CURRENT_VERSION = '{{ $currentVersion }}'
+    var WITERIA_FULL_URL = '{{ $fullUrl }}'
+</script>
