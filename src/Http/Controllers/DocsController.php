@@ -11,6 +11,7 @@
 namespace Overtrue\Wisteria\Http\Controllers;
 
 use Overtrue\Wisteria\Documentation;
+use Overtrue\Wisteria\Exceptions\PageNotFoundException;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
@@ -43,19 +44,28 @@ class DocsController
 
     public function show($version, $page = null)
     {
-        $content = $this->docs->get($version, $page);
+        $page = $page ?? \config('wisteria.docs.index');
 
-        $title = (new Crawler($content))->filterXPath('//h1');
-
-        return view('wisteria::docs', [
-            'title' => count($title) ? $title->text() : null,
-            'index' => $this->docs->index($version),
-            'content' => $content,
-            'currentVersion' => $version,
-            'versions' => config('wisteria.docs.versions'),
+        $data = [
             'page' => $page,
+            'title' => null,
+            'currentVersion' => $version,
+            'index' => $this->docs->index($version),
+            'versions' => config('wisteria.docs.versions'),
             'editUrl' => \sprintf('%s/edit/%s/%s.md', \config('wisteria.docs.repository.url'), $version, $page),
             'canonical' => sprintf('%/%s/%s', config('wisteria.docs.path'), config('wisteria.docs.default_version'), $page),
-        ]);
+        ];
+
+        try {
+            $content = $this->docs->get($version, $page);
+        } catch (PageNotFoundException $e) {
+            $data['title'] = 'Page Not Found.';
+            return \response(\view('wisteria::404', $data), 404);
+        }
+
+        $title = (new Crawler($content))->filterXPath('//h1');
+        $title = \count($title) ? $title->text() : null;
+
+        return view('wisteria::docs', \array_merge($data, \compact('title', 'content')));
     }
 }

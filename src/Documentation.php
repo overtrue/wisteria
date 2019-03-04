@@ -59,7 +59,7 @@ class Documentation
     public function index(string $version)
     {
         return $this->cache->remember(
-            \sprintf('docs.%s.index', $version),
+            \sprintf('docs.%s.index', $version ?? config('wisteria.docs.default_version')),
             \config('wisteria.cache.ttl'),
             function () use ($version) {
                 $homepage = \config('wisteria.docs.index', \config('wisteria.docs.home', 'README.md'));

@@ -27,25 +27,29 @@ const app = new Vue({
     this.activateCurrentSection()
   },
   methods: {
-    reformatContent() {
+    reformatContent () {
       document.querySelectorAll('.markdown-body blockquote blockquote').forEach((blockquote) => {
         blockquote.outerHTML = blockquote.innerHTML
       })
     },
-    createSmoothSidebar() {
+    createSmoothSidebar () {
       new PerfectScrollbar('#nav', {
         wheelSpeed: 2,
         wheelPropagation: true,
         minScrollbarLength: 20
       })
     },
-    activateCurrentSection() {
-        let current = document.querySelector('.docs-index ul li a[href="' + window.location.pathname + '"]');
+    activateCurrentSection () {
+      let nav = document.querySelector('#nav')
+      let current = document.querySelector('.docs-index ul li a[href="' + window.location.pathname + '"]')
 
-        if (current) {
-          current.classList.add('is-active')
-          current.parentElement.classList.add('is-active')
-        }
+      if (current) {
+        current.classList.add('is-active')
+        current.parentElement.classList.add('is-active')
+      }
+      if (current.getBoundingClientRect().top >= window.screen.height * 0.4) {
+        nav.scrollTop = current.getBoundingClientRect().top - window.screen.height * 0.4
+      }
     },
     initDocSearch() {
       docsearch({

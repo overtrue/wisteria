@@ -25676,11 +25676,16 @@ var app = new Vue({
       });
     },
     activateCurrentSection: function activateCurrentSection() {
+      var nav = document.querySelector('#nav');
       var current = document.querySelector('.docs-index ul li a[href="' + window.location.pathname + '"]');
 
       if (current) {
         current.classList.add('is-active');
         current.parentElement.classList.add('is-active');
+      }
+
+      if (current.getBoundingClientRect().top >= window.screen.height * 0.4) {
+        nav.scrollTop = current.getBoundingClientRect().top - window.screen.height * 0.4;
       }
     },
     initDocSearch: function initDocSearch() {
@@ -25738,8 +25743,8 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/overtrue/www/wisteria/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/overtrue/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/artisan/www/wisteria/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/artisan/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

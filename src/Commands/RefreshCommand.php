@@ -11,7 +11,7 @@
 namespace Overtrue\Wisteria\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Contracts\Filesystem\Filesystem;
+use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 
 class RefreshCommand extends Command
@@ -71,16 +71,18 @@ class RefreshCommand extends Command
 
     protected function updateOrCreateVersionDocs(string $version)
     {
-        $versionDirectory = \sprintf('%s/%s', \config('wisteria.docs.path'), $version);
+        $versionDirectory = \sprintf('%s/%s', \base_path(config('wisteria.docs.path')), $version);
+        $workDirectory = \base_path();
 
         if (!$this->filesystem->exists($versionDirectory)) {
             $command = \sprintf('git clone -b %s %s %s/%s', $version, $this->repository['url'], ltrim(\config('wisteria.docs.path'), '/'), $version);
         } else {
+            $workDirectory = $versionDirectory;
             $command = \sprintf('git reset --hard; git pull');
         }
 
         $process = new Process($command);
-        $process->setWorkingDirectory(\base_path());
+        $process->setWorkingDirectory($workDirectory);
 
         $this->line(\sprintf('Executing git command: %s', $command));
 

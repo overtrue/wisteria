@@ -39,6 +39,10 @@ li {
   top: 5.5rem;
 }
 
+.min-h-\(screen-16\) {
+  min-height: calc(100vh - 4rem);
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 576px;
@@ -68,6 +72,8 @@ li {
     max-height: calc(100vh - 5.5rem);
   }
 }
+
+
 
 @media (min-width: 576px) {
   blockquote > div {
