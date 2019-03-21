@@ -5,7 +5,7 @@
 
 ## Installing
 
-```shell
+```bash
 $ composer require overtrue/wisteria -vvv
 ```
 
@@ -13,19 +13,19 @@ $ composer require overtrue/wisteria -vvv
 
 ### Installation
 
-```php
+```bash
 $ composer require overtrue/wisteria -vvv
 ```
 
 Publish config and required assets:
 
-```php
+```bash
 $ php artisan wisteria:install
 ```
 
 Update config file `config/wisteria.php` with right repository url of your docs, Then init the docs files:
 
-```php
+```bash
 $ php artisan wisteria:refresh
 ```
 
