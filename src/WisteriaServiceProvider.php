@@ -73,7 +73,7 @@ class WisteriaServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../public' => public_path('vendor/wisteria'),
-        ], 'wisteria-public');
+        ], ['wisteria-public', 'wisteria-assets']);
     }
 
     protected function registerViews(): void

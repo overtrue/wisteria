@@ -25654,7 +25654,7 @@ files.keys().map(function (key) {
   return Vue.component(key.split('/').pop().split('.')[0], files(key).default);
 });
 var app = new Vue({
-  el: '#app',
+  el: '#content',
   mounted: function mounted() {
     this.reformatContent();
     this.replaceQuoteIcons();

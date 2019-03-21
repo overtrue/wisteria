@@ -1,5 +1,5 @@
 <div class="relative mr-6 my-2">
-    <input class="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-purple" id="search-input" type="text" placeholder="{{ config('wisteria.plugins.docsearch.placeholder') }}">
+    <input class="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-grey-darker" id="search-input" type="text" placeholder="{{ config('wisteria.plugins.docsearch.placeholder') }}">
     <div class="absolute pin-r pin-t mt-3 mr-4 text-purple-lighter">
         <svg version="1.1" class="h-4 text-dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="0 0 40 40" style="enable-background:new 0 0 52.966 52.966;" xml:space="preserve">

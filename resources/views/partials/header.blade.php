@@ -2,7 +2,7 @@
     <div class="container mx-auto">
         <div class="flex items-center justify-between px-6 lg:px-16">
             <a href="{{ url('/') }}">
-                <img src="{{ asset('vendor/wisteria/img/logo.svg') }}" alt="Logo" style="height: 30px" />
+                <img src="{{ asset(config('wisteria.ui.logo')) }}" alt="Logo" style="height: 30px" />
             </a>
             @if(config('wisteria.plugins.docsearch.api_key'))
                 @include('wisteria::plugins.docsearch')
