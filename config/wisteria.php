@@ -5,7 +5,7 @@ return [
 
     'docs' => [
         // Storage path of docs files.
-        'path'  => '/resource/docs',
+        'path'  => '/resources/docs',
 
         // Index page file.
         'index' => 'README.md',
