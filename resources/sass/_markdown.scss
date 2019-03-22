@@ -1,6 +1,10 @@
 .markdown-body {
   color: #3d4852;
-  line-height: 1.5;
+  line-height: 1.53;
+  letter-spacing: .009em;
+  ol, ul {
+    list-style: initial;
+  }
   a {
     color: #2779bd;
     text-decoration: none;

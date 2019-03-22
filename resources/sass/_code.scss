@@ -62,6 +62,9 @@ blockquote {
   padding: 0;
   color: #22292f;
   > {
+    :not(.flag) {
+      flex-grow: 1;
+    }
     p > a {
       color: #fff;
       text-decoration: underline;

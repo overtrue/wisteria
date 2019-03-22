@@ -26,11 +26,15 @@ return [
         ],
     ],
 
-    // ui
+    // UI settings
     'ui' => [
         'logo' => 'vendor/wisteria/img/logo.svg',
         'nav-links' => [
-
+            //  [
+            //      'url' => '/',
+            //      'label' => 'Home',
+            //      'target' => '_self',
+            //  ],
         ],
     ],
 

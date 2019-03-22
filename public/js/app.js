@@ -25680,7 +25680,7 @@ var app = new Vue({
       var current = document.querySelector('.docs-index ul li a[href="' + WITERIA_FULL_URL + '"]');
 
       if (current) {
-        current.classList.add('is-active');
+        current.classList.add('is-active', 'px-2', 'py-1', 'block', '-ml-2', 'bg-gray-100', 'rounded');
         current.parentElement.classList.add('is-active');
       }
 
@@ -25743,8 +25743,8 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/overtrue/www/wisteria/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/overtrue/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/artisan/www/wisteria/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/artisan/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

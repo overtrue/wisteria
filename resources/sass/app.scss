@@ -1,13 +1,14 @@
-
 // tailwind
-@tailwind preflight;
-@tailwind utilities;
+@tailwind base;
 
 // custom
 @import "common";
+@import "locales";
 @import "sidebar";
 @import "markdown";
 @import "code";
 
 @import "~perfect-scrollbar/css/perfect-scrollbar.css";
 @import "~docsearch.js/dist/cdn/docsearch.css";
+
+@tailwind utilities;
