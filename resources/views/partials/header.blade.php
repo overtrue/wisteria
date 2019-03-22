@@ -1,4 +1,4 @@
-<header class="flex items-center bg-white h-16 z-50 pin-t sticky border-t-4 border-b">
+<header class="flex items-center bg-white h-16 z-50 top-0 sticky border-t-4 shadow">
     <div class="container mx-auto">
         <div class="flex items-center justify-between px-6 lg:px-16">
             <a href="{{ url('/') }}">
