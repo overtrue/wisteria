@@ -16,6 +16,6 @@ mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
     .options({
       processCssUrls: true,
-      postCss: [ tailwindcss('./tailwind.js') ],
+      postCss: [ tailwindcss('./tailwind.config.js') ],
     })
 

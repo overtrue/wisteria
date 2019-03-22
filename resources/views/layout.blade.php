@@ -10,7 +10,7 @@
 <body>
 <div id="app">
     @include('wisteria::partials.header')
-    <div class="max-w-3xl mx-auto px-6 pt-4 min-h-full">
+    <div class="max-w-6xl mx-auto px-6 pt-4 min-h-full">
         @yield('content')
     </div>
     @include('wisteria::partials.footer')

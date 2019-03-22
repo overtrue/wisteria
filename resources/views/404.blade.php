@@ -1,7 +1,7 @@
 @extends('wisteria::layout')
 
 @section('content')
-    <div class="text-center markdown-body py-32 text-grey-darkest">
+    <div class="text-center markdown-body py-32 text-gray-darkest">
         <svg t="1551339945997" height="100" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1617"
              xmlns:xlink="http://www.w3.org/1999/xlink">
             <path

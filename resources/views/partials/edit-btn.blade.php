@@ -1,5 +1,5 @@
 <a
-    class="flex items-center justify-center mt-4 px-5 py-2 rounded border text-grey-darker no-underline hover:bg-grey-lighter hover:border-grey"
+    class="flex items-center justify-center mt-4 px-5 py-2 rounded border text-gray-800 no-underline hover:bg-gray-300er hover:border-gray"
     href="{{ $editUrl }}"
     target="_blank"
 >
