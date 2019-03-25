@@ -61,7 +61,7 @@ class DocsController
             $content = $this->docs->get($version, $page);
         } catch (PageNotFoundException $e) {
             $data['title'] = 'Page Not Found.';
-            return \response(\view('wisteria::404', $data), 404);
+            return \response(\view('wisteria::errors.404', $data), 404);
         }
 
         $title = (new Crawler($content))->filterXPath('//h1');

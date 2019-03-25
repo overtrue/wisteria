@@ -79,9 +79,41 @@ class WisteriaServiceProvider extends ServiceProvider
     protected function registerViews(): void
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'wisteria');
+
+        // all
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/wisteria'),
         ], 'wisteria-views');
+
+        // ads
+        $this->publishes([
+            __DIR__.'/../resources/views/ads' => resource_path('views/vendor/wisteria/ads'),
+        ], 'wisteria-views-ads');
+
+        // partials
+        $this->publishes([
+            __DIR__.'/../resources/views/partials' => resource_path('views/vendor/wisteria/partials'),
+        ], 'wisteria-views-partials');
+
+        // plugins
+        $this->publishes([
+            __DIR__.'/../resources/views/plugins' => resource_path('views/vendor/wisteria/plugins'),
+        ], 'wisteria-views-plugins');
+
+        // errors
+        $this->publishes([
+            __DIR__.'/../resources/views/plugins' => resource_path('views/vendor/wisteria/errors'),
+        ], 'wisteria-views-errors');
+
+        // docs
+        $this->publishes([
+            __DIR__.'/../resources/views/docs.blade.php' => resource_path('views/vendor/wisteria/docs.blade.php'),
+        ], 'wisteria-views-docs');
+
+        // layout
+        $this->publishes([
+            __DIR__.'/../resources/views/layout.blade.php' => resource_path('views/vendor/wisteria/layout.blade.php'),
+        ], 'wisteria-views-layout');
     }
 
     protected function registerTranslations(): void
