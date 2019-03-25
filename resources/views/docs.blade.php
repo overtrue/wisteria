@@ -15,7 +15,7 @@
         <div class="hidden pt-4 px-6 xl:flex flex-col xl:w-1/5 text-sm items-center lg:max-h-(screen-22) pin-22 lg:sticky">
             @include('wisteria::ads.before-right-bar')
             @include('wisteria::partials.edit-btn')
-            @include('wisteria::ads.before-right-bar')
+            @include('wisteria::ads.after-right-bar')
         </div>
     </div>
 @stop
