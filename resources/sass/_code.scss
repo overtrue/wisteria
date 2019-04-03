@@ -59,19 +59,20 @@ blockquote, pre {
 
 blockquote {
   display: flex;
-  padding: 0;
   color: #22292f;
   > {
     :not(.flag) {
       flex-grow: 1;
     }
-    p > a {
+    p {
+      > a {
       color: #fff;
       text-decoration: underline;
       &:hover {
         color: #fff;
         text-decoration: none;
       }
+    }
     }
     div {
       padding: 1rem .75rem .5rem;
@@ -80,7 +81,7 @@ blockquote {
       display: none;
     }
     p {
-      padding: .75rem;
+      // padding: 0;
       margin-bottom: 0;
     }
   }

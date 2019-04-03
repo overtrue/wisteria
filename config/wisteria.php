@@ -65,6 +65,13 @@ return [
         ],
     ],
 
+
+    'date' => [
+        'format' => 'Y-m-d H:i:s',
+        'timezone' => 'UTC',
+    ],
+
+
     'cache' => [
         'ttl' => 300, // seconds
     ],

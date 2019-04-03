@@ -8,9 +8,9 @@
     @stack('header-script')
 </head>
 <body>
-<div id="app">
+<div id="app" class="flex flex-col flex-1 h-screen overflow-hidden">
     @include('wisteria::partials.header')
-    <div class="h-full">
+    <div class="flex-1">
         @yield('content')
     </div>
 </div>

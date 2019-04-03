@@ -29365,11 +29365,9 @@ module.exports = g;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prismjs */ "./node_modules/prismjs/prism.js");
-/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prismjs__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var docsearch_js_dist_cdn_docsearch_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! docsearch.js/dist/cdn/docsearch.js */ "./node_modules/docsearch.js/dist/cdn/docsearch.js");
+/* harmony import */ var docsearch_js_dist_cdn_docsearch_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(docsearch_js_dist_cdn_docsearch_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! perfect-scrollbar */ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js");
-/* harmony import */ var docsearch_js_dist_cdn_docsearch_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! docsearch.js/dist/cdn/docsearch.js */ "./node_modules/docsearch.js/dist/cdn/docsearch.js");
-/* harmony import */ var docsearch_js_dist_cdn_docsearch_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(docsearch_js_dist_cdn_docsearch_js__WEBPACK_IMPORTED_MODULE_2__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -29379,7 +29377,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 
-
+window.Prism = __webpack_require__(/*! prismjs */ "./node_modules/prismjs/prism.js");
 
 __webpack_require__(/*! prismjs/components/prism-markup-templating.js */ "./node_modules/prismjs/components/prism-markup-templating.js");
 
@@ -29414,7 +29412,7 @@ function () {
     this.initVueInstances();
     this.reformatContent();
     this.replaceQuoteIcons();
-    this.createSmoothSidebar();
+    this.createSmoothScrollbar();
     this.initDocSearch();
     this.activateCurrentSection();
   }
@@ -29428,33 +29426,67 @@ function () {
       this.content = new Vue({
         el: '#content'
       });
-      console.log('abc');
     }
   }, {
     key: "reformatContent",
     value: function reformatContent() {
-      document.querySelectorAll('.markdown-body blockquote blockquote').forEach(function (blockquote) {
+      var content = document.querySelector('.markdown-body');
+      var toc = [];
+      content.querySelectorAll('blockquote blockquote').forEach(function (blockquote) {
         blockquote.outerHTML = blockquote.innerHTML;
       });
+      content.querySelectorAll('h2, h3').forEach(function (heading, index) {
+        var title = heading.textContent;
+        var name = "heading-".concat(heading.tagName.toLowerCase(), "-").concat(index);
+        var link = "#".concat(name);
+        var level = parseInt(heading.tagName.substr(1)) - 1;
+        toc.push({
+          title: title,
+          link: link,
+          name: name,
+          level: level
+        });
+        var anchor = document.createElement('a');
+        anchor.classList.add('anchor-link');
+        anchor.setAttribute('name', name);
+        anchor.setAttribute('href', link);
+        anchor.insertAdjacentHTML('beforeend', "<svg style=\"width:18px;height:18px\" viewBox=\"0 0 24 24\">\n        <path fill=\"currentColor\" d = \"M10.59,13.41C11,13.8 11,14.44 10.59,14.83C10.2,15.22 9.56,15.22 9.17,14.83C7.22,12.88 7.22,9.71 9.17,7.76V7.76L12.71,4.22C14.66,2.27 17.83,2.27 19.78,4.22C21.73,6.17 21.73,9.34 19.78,11.29L18.29,12.78C18.3,11.96 18.17,11.14 17.89,10.36L18.36,9.88C19.54,8.71 19.54,6.81 18.36,5.64C17.19,4.46 15.29,4.46 14.12,5.64L10.59,9.17C9.41,10.34 9.41,12.24 10.59,13.41M13.41,9.17C13.8,8.78 14.44,8.78 14.83,9.17C16.78,11.12 16.78,14.29 14.83,16.24V16.24L11.29,19.78C9.34,21.73 6.17,21.73 4.22,19.78C2.27,17.83 2.27,14.66 4.22,12.71L5.71,11.22C5.7,12.04 5.83,12.86 6.11,13.65L5.64,14.12C4.46,15.29 4.46,17.19 5.64,18.36C6.81,19.54 8.71,19.54 9.88,18.36L13.41,14.83C14.59,13.66 14.59,11.76 13.41,10.59C13,10.2 13,9.56 13.41,9.17Z\" />\n</svg >");
+        heading.prepend(anchor);
+      });
+      toc.reverse().forEach(function (item) {
+        document.querySelector('#toc .anchors').insertAdjacentHTML('afterend', "<a href=\"".concat(item.link, "\" data-anchor=\"").concat(item.name, "\" class=\"level-").concat(item.level, " py-1 -ml-4 pl-").concat(item.level * 4, " block text-gray-600 truncate border-l-2 border-transparent\">").concat(item.title, "</a>"));
+      });
+      window.onhashchange = this.handleAnchorLinkActiveStatus;
     }
   }, {
-    key: "createSmoothSidebar",
-    value: function createSmoothSidebar() {
-      new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__["default"]('#sidebar .docs-index', {
+    key: "createSmoothScrollbar",
+    value: function createSmoothScrollbar() {
+      var _this = this;
+
+      var options = {
         wheelSpeed: 2,
         suppressScrollX: false,
         wheelPropagation: true,
         minScrollbarLength: 20
+      };
+      var content = document.querySelector('#content');
+      new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__["default"]('#sidebar .docs-index', options);
+      var ps = new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__["default"](content, options);
+      content.addEventListener('ps-scroll-y', function () {
+        return _this.handleAnchorLinkActiveStatus(ps);
       });
     }
   }, {
     key: "activateCurrentSection",
     value: function activateCurrentSection() {
-      var nav = document.querySelector('#sidebar');
-      var current = document.querySelector('.docs-index ul li a[href="' + WITERIA_FULL_URL + '"]');
+      var nav = document.querySelector('#sidebar .docs-index');
+      var current = nav.querySelector('ul li a[href="' + WITERIA_FULL_URL + '"]');
+      nav.querySelectorAll('ul li a').forEach(function (li) {
+        li.classList.add('px-4', 'py-1', 'block', '-ml-4');
+      });
 
       if (current) {
-        current.classList.add('is-active', 'px-4', 'py-2', 'block', '-ml-4', 'bg-white', 'border', 'border-r-0');
+        current.classList.add('is-active', 'bg-white', 'border', 'border-r-0', 'py-2');
         current.parentElement.classList.add('is-active');
       }
 
@@ -29463,9 +29495,39 @@ function () {
       }
     }
   }, {
+    key: "handleAnchorLinkActiveStatus",
+    value: function handleAnchorLinkActiveStatus(scrollbar) {
+      var _this2 = this;
+
+      document.querySelectorAll("#content a.anchor-link").forEach(function (anchor) {
+        var anchorPosition = anchor.getBoundingClientRect();
+
+        if (anchorPosition.top <= scrollbar.lastScrollTop && Math.abs(scrollbar.lastScrollTop - anchorPosition.top) <= window.screen.height * 300) {
+          _this2.setCurrentAnchor(anchor.hash);
+        }
+      });
+    }
+  }, {
+    key: "setCurrentAnchor",
+    value: function setCurrentAnchor() {
+      var hash = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      hash = hash || window.location.hash;
+      var link = document.querySelector("#toc a[href=\"".concat(hash, "\"]"));
+
+      if (link) {
+        var previous = document.querySelector('#toc a.is-active');
+
+        if (previous) {
+          previous.classList.remove('is-active', 'font-semibold', 'border-gray-800', 'text-gray-800');
+        }
+
+        link.classList.add('is-active', 'font-semibold', 'border-gray-800', 'text-gray-800');
+      }
+    }
+  }, {
     key: "initDocSearch",
     value: function initDocSearch() {
-      docsearch_js_dist_cdn_docsearch_js__WEBPACK_IMPORTED_MODULE_2___default()({
+      docsearch_js_dist_cdn_docsearch_js__WEBPACK_IMPORTED_MODULE_0___default()({
         // Your apiKey and indexName will be given to you once
         apiKey: WISTERIA_DOCS_DOCSEARCH_API_KEY,
         indexName: WISTERIA_DOCS_DOCSEARCH_INDEX_NAME,
@@ -29714,8 +29776,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/artisan/www/wisteria/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/artisan/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/overtrue/www/wisteria/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/overtrue/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
