@@ -1,11 +1,11 @@
 @extends('wisteria::layout')
 
 @section('content')
-    <div class="lg:flex -mx-6">
+    <div class="lg:flex items-stretch h-full">
         @include('wisteria::ads.before-sidebar')
         @include('wisteria::partials.sidebar')
         @include('wisteria::ads.before-sidebar')
-        <div class="w-full lg:w-3/4 xl:w-3/5 pt-10 px-6 lg:px-12 min-h-(screen-16) markdown-body">
+        <div class="markdown-body w-full mx-20 pt-10">
             @include('wisteria::ads.before-content')
             <article id="content">
                 {!! $content !!}

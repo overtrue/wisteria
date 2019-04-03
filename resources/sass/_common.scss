@@ -1,3 +1,9 @@
+body {
+  font-size: 16px;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
 a {
   color: #22292f;
   text-decoration: none;
@@ -29,8 +35,17 @@ li {
   padding-top: .25rem;
 }
 
+#nav {
+  box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1);
+}
+
+#app, body, html {
+  height: 100%;
+}
+
 .container {
   width: 100%;
+  max-width: 1448px;
 }
 
 .pin-22 {
@@ -61,7 +76,7 @@ li {
 
 @media (min-width: 1280px) {
   .container {
-    max-width: 1280px;
+    max-width: 1448px;
   }
 }
 

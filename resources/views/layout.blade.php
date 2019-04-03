@@ -10,10 +10,9 @@
 <body>
 <div id="app">
     @include('wisteria::partials.header')
-    <div class="max-w-6xl mx-auto px-6 pt-4 min-h-full">
+    <div class="h-full">
         @yield('content')
     </div>
-    @include('wisteria::partials.footer')
 </div>
 @stack('footer-prepend-script')
 <script src="{{ asset('vendor/wisteria/js/app.js') }}"></script>

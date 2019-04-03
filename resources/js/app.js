@@ -40,19 +40,20 @@ class Wisteria {
   }
 
   createSmoothSidebar () {
-    new PerfectScrollbar('#nav', {
+    new PerfectScrollbar('#sidebar .docs-index', {
       wheelSpeed: 2,
+      suppressScrollX: false,
       wheelPropagation: true,
       minScrollbarLength: 20
     })
   }
 
   activateCurrentSection () {
-    let nav = document.querySelector('#nav')
+    let nav = document.querySelector('#sidebar')
     let current = document.querySelector('.docs-index ul li a[href="' + WITERIA_FULL_URL + '"]')
 
     if (current) {
-      current.classList.add('is-active', 'px-2', 'py-1', 'block', '-ml-2', 'bg-gray-100', 'rounded')
+      current.classList.add('is-active', 'px-4', 'py-2', 'block', '-ml-4', 'bg-white', 'border', 'border-r-0')
       current.parentElement.classList.add('is-active')
     }
     if (current.getBoundingClientRect().top >= window.screen.height * 0.4) {

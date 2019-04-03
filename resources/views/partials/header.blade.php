@@ -1,6 +1,6 @@
-<header class="flex items-center bg-white h-16 z-50 top-0 sticky border-t-4 shadow">
+<header id="nav" class="flex items-center bg-white h-16 z-50 top-0 sticky border-b border-gray-400">
     <div class="container mx-auto">
-        <div id="navbar" class="flex items-center justify-between px-6 lg:px-16">
+        <div id="navbar" class="flex items-center justify-between">
             <a href="{{ url('/') }}">
                 <img src="{{ asset(config('wisteria.ui.logo')) }}" alt="Logo" style="height: 30px" />
             </a>

@@ -2,6 +2,13 @@
   color: #3d4852;
   line-height: 1.53;
   letter-spacing: .009em;
+  max-width: 750px;
+
+  h1 {
+    margin-top: 0;
+    font-size: 32px;
+  }
+
   ol, ul {
     list-style: initial;
   }
