@@ -7,7 +7,7 @@
         @include('wisteria::ads.before-sidebar')
         <div class="markdown-body mx-20 relative flex-1 flex">
             @include('wisteria::ads.before-content')
-            <article id="content" class="h-full w-full pt-10 overflow-hidden absolute">
+            <article id="content" class="h-full w-full pt-10">
                 @if(!!$title)
                 <div class="flex justify-between border-b pb-6 mb-6 border-gray-300">
                     <div class="border-l-2 border-gray-600 pl-4">

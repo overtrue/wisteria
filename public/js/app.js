@@ -29407,6 +29407,8 @@ var Wisteria =
 /*#__PURE__*/
 function () {
   function Wisteria() {
+    var _this = this;
+
     _classCallCheck(this, Wisteria);
 
     this.initVueInstances();
@@ -29415,6 +29417,9 @@ function () {
     this.createSmoothScrollbar();
     this.initDocSearch();
     this.activateCurrentSection();
+    document.addEventListener('scroll', function () {
+      return _this.handleAnchorLinkActiveStatus();
+    });
   }
 
   _createClass(Wisteria, [{
@@ -29461,24 +29466,18 @@ function () {
   }, {
     key: "createSmoothScrollbar",
     value: function createSmoothScrollbar() {
-      var _this = this;
-
       var options = {
         wheelSpeed: 2,
         suppressScrollX: false,
         wheelPropagation: true,
         minScrollbarLength: 20
       };
-      var content = document.querySelector('#content');
-      new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__["default"]('#sidebar .docs-index', options);
-      content.addEventListener('scroll', function () {
-        return _this.handleAnchorLinkActiveStatus();
-      });
+      new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__["default"]('#sidebar .sidebar-inner', options);
     }
   }, {
     key: "activateCurrentSection",
     value: function activateCurrentSection() {
-      var nav = document.querySelector('#sidebar .docs-index');
+      var nav = document.querySelector('#sidebar .sidebar-inner');
       var current = nav.querySelector('ul li a[href="' + WITERIA_FULL_URL + '"]');
       nav.querySelectorAll('ul li a').forEach(function (li) {
         li.classList.add('px-4', 'py-1', 'block', '-ml-4');
@@ -29775,8 +29774,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/overtrue/www/wisteria/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/overtrue/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/artisan/www/wisteria/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/artisan/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -1488,10 +1488,6 @@ html {
   padding-bottom: .25rem;
 }
 
-#sidebar .docs-index {
-  height: calc(100vh - 14rem);
-}
-
 #sidebar .docs-index h2 {
   margin-top: 0;
   margin-bottom: .5rem;

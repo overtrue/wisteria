@@ -1,4 +1,4 @@
-<header id="navbar" class="flex items-stretch bg-white h-16 z-50 top-0 sticky border-b border-gray-400">
+<header id="navbar" class="flex flex-shrink-0 items-stretch bg-white h-16 z-50 top-0 sticky border-b border-gray-400">
     <div class="logo flex items-center justify-between pr-4">
         <a href="{{ url('/') }}" class="block h-full flex items-center ml-4">
             <img src="{{ asset(config('wisteria.ui.logo')) }}" alt="Logo" style="height: 30px" />

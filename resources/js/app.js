@@ -34,6 +34,7 @@ class Wisteria {
     this.createSmoothScrollbar()
     this.initDocSearch()
     this.activateCurrentSection()
+    document.addEventListener('scroll', () => this.handleAnchorLinkActiveStatus())
   }
 
   initVueInstances() {
@@ -89,14 +90,11 @@ class Wisteria {
       minScrollbarLength: 20,
     }
 
-    let content = document.querySelector('#content')
-
-    new PerfectScrollbar('#sidebar .docs-index', options)
-    content.addEventListener('scroll', () => this.handleAnchorLinkActiveStatus())
+    new PerfectScrollbar('#sidebar .sidebar-inner', options)
   }
 
   activateCurrentSection() {
-    let nav = document.querySelector('#sidebar .docs-index')
+    let nav = document.querySelector('#sidebar .sidebar-inner')
     let current = nav.querySelector('ul li a[href="' + WITERIA_FULL_URL + '"]')
 
     nav.querySelectorAll('ul li a').forEach(li => {
