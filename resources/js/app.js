@@ -2,6 +2,7 @@ window.Vue = require('vue')
 
 import docsearch from 'docsearch.js/dist/cdn/docsearch.js'
 import PerfectScrollbar from 'perfect-scrollbar'
+import ClipboardJS from 'clipboard'
 
 window.Prism = require('prismjs')
 
@@ -97,6 +98,11 @@ class Wisteria {
                         <a class="copy-btn p-2 absolute top-0 right-0 cursor-pointer z-20" aria-label="copy">${copyIcon}</a>
                         ${pre.outerHTML}
                       </div>`
+    })
+
+    new ClipboardJS('.copy-btn', {
+      target: trigger => trigger.nextElementSibling,
+      text: target => target.innerText
     })
   }
 
