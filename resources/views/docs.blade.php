@@ -5,8 +5,10 @@
     @include('wisteria::ads.before-sidebar')
     @include('wisteria::partials.sidebar')
     @include('wisteria::ads.before-sidebar')
-    <div class="markdown-body mx-20 relative flex-1 flex">
-        @include('wisteria::ads.before-content')
+    <div class="markdown-body mx-20 relative flex-1">
+        <div class="mb-6">
+            @include('wisteria::ads.before-content')
+        </div>
         <article id="content" class="h-full w-full pt-10">
             @if(!!$title)
             <div class="flex justify-between border-b pb-6 mb-6 border-gray-300">
@@ -27,7 +29,9 @@
                 @include('wisteria::partials.footer')
             </footer>
         </article>
-        @include('wisteria::ads.after-content')
+        <div class="my-6">
+            @include('wisteria::ads.after-content')
+        </div>
     </div>
     @include('wisteria::partials.toc')
 </div>
