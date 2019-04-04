@@ -47,9 +47,9 @@ class DocsController
     {
         $page = $page ?? \config('wisteria.docs.index');
 
-        $updatedAt = Carbon::create(date('C', filemtime($this->docs->path($version, $page))))
-                        ->setTimezone(config('wisteria.date.timezone', 'UTC'))
-                        ->diffForHumans();
+        $updatedAt = Carbon::parse(date('c', filemtime($this->docs->path($version, $page))))
+            ->setTimezone(config('wisteria.date.timezone', 'UTC'))
+            ->diffForHumans();
 
         $data = [
             'page' => $page,
