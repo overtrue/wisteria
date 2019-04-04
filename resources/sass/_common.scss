@@ -37,50 +37,33 @@ li {
   height: 100%;
 }
 
-.container {
-  width: 100%;
-  max-width: 1448px;
+::-webkit-scrollbar-track
+{
+  border-radius: 6px;
+  background-color: #F5F5F5;
 }
 
-.pin-22 {
-  top: 5.5rem;
+::-webkit-scrollbar
+{
+  width: 6px;
+  background-color: #F5F5F5;
 }
 
-.min-h-\(screen-16\) {
-  min-height: calc(100vh - 4rem);
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color: #555;
 }
 
-@media (min-width: 576px) {
-  .container {
-    max-width: 576px;
+@each $height in 1, 2, 3, 4, 6, 8, 12, 14 {
+  .top-#{$height} {
+    top: #{$height}rem;
+  }
+
+  .bottom-#{$height} {
+    bottom: #{$height}rem;
   }
 }
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 992px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1448px;
-  }
-}
-
-@media (min-width: 992px) {
-  .lg\:max-h-\(screen-22\) {
-    max-height: calc(100vh - 5.5rem);
-  }
-}
-
-
 
 @media (min-width: 576px) {
   blockquote > div {

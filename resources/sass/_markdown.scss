@@ -1,5 +1,5 @@
 .markdown-body {
-  color: #3d4852;
+  color: #4a5568;
   line-height: 1.625;
   letter-spacing: .009em;
   max-width: 750px;
@@ -19,6 +19,17 @@
 
   h2, h3 {
     position: relative;
+    align-items: center;
+    line-height: 1;
+
+    &:before {
+      display: block;
+      width: 100%;
+      height: 6rem;
+      margin-top: -6rem;
+      visibility: hidden;
+      content: "";
+    }
 
     &:hover {
       a {
@@ -28,20 +39,25 @@
   }
 
   a.anchor-link {
-    display: inline-block;
-    height: 100%;
-    position: absolute;
-    margin-left: -22px;
-    height: 20px;
-    width: 20px;
-    display: flex;
-    top: 10%;
+    margin-left: -1.1em;
     color: transparent;
+    display: inline-flex;
     align-items: center;
+    height: 1.1em;
+    width: 1.1em;
+
+    svg {
+      display: inline;
+      margin-right: 6px;
+    }
   }
 
   ol, ul {
     list-style: initial;
+  }
+
+  pre {
+    overflow-x: auto;
   }
 
   blockquote {
@@ -61,30 +77,9 @@
       }
     }
 
-    ul {
-      padding-left: 2em;
+    ul, ol {
+      padding-left: 1em;
       margin-bottom: 0;
-    }
-
-    &.info {
-      border-left-width: 0;
-      background-color: #3490dc;
-      border-color: #2779bd;
-      color: #fff;
-      a {
-        color: #fff;
-      }
-      .flag, pre, code {
-        background-color: #2779bd;
-      }
-    }
-    &.warning {
-      border-left-width: 0;
-      color: #fff;
-      background-color: #de751f;
-      a {
-        color: #fff;
-      }
     }
   }
   table {
@@ -106,6 +101,56 @@
     &.inserted {
       color: #22863a;
       background-color: #f0fff4;
+    }
+  }
+  .copy-btn {
+    display: block;
+    color: #9DAAB6;
+    font-family: Arial;
+  }
+
+  .copy-btn:hover {
+    &::before {
+      top: calc(100% + 4px);
+      left: 50%;
+      width: 0;
+      height: 0;
+      bottom: auto;
+      z-index: 101;
+      content: "";
+      position: absolute;
+      transform: translateX(-50%);
+      border-style: solid;
+      border-color: #242A31 transparent;
+      animation-name: c012;
+      border-top-width: 0;
+      border-left-width: 8px;
+      animation-duration: 0.2s;
+      border-right-width: 8px;
+      animation-fill-mode: forwards;
+      border-bottom-width: 8px;
+    }
+    &::after {
+      top: calc(100% + 8px);
+      left: 50%;
+      color: #FFFFFF;
+      bottom: auto;
+      z-index: 100;
+      padding: 5px 8px;
+      content: attr(aria-label);
+      position: absolute;
+      font-size: 12px;
+      transform: translateX(-50%);
+      background: #242A31;
+      line-height: 1.625;
+      font-weight: 400;
+      white-space: pre;
+      border-radius: 3px;
+      text-transform: none;
+      pointer-events: none;
+      animation-name: c012;
+      animation-duration: 0.2s;
+      animation-fill-mode: forwards;
     }
   }
 }
