@@ -31,6 +31,12 @@ $ php artisan wisteria:refresh
 
 Done. 
 
+## Credits
+
+- [LaRecipe](https://github.com/saleem-hadad/larecipe) - Made by [@saleem-hadad](https://github.com/saleem-hadad)  
+- [tailwindcss/tailwindcss](https://github.com/tailwindcss/tailwindcss) - A utility-first CSS framework for rapid UI development made by [@adamwathan](https://github.com/adamwathan).
+- [laravel/mix](https://laravel-mix.com/)
+
 ## Contributing
 
 You can contribute in one of three ways:
