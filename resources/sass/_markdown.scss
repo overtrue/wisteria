@@ -27,6 +27,19 @@
     }
   }
 
+  a.anchor-link {
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    margin-left: -22px;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    top: 10%;
+    color: transparent;
+    align-items: center;
+  }
+
   ol, ul {
     list-style: initial;
   }
@@ -44,19 +57,6 @@
         &:hover {
           color: #2779bd;
           text-decoration: underline;
-        }
-
-        &.anchor-link {
-          display: inline-block;
-          height: 100%;
-          position: absolute;
-          margin-left: -22px;
-          height: 20px;
-          width: 20px;
-          display: flex;
-          top: 10%;
-          color: transparent;
-          align-items: center;
         }
       }
     }
