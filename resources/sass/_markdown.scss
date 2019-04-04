@@ -30,37 +30,35 @@
   ol, ul {
     list-style: initial;
   }
-  a {
-    color: #2779bd;
-    text-decoration: none;
-    &:hover {
-      color: #2779bd;
-      text-decoration: underline;
-    }
 
-    &.anchor-link {
-      display: inline-block;
-      height: 100%;
-      position: absolute;
-      margin-left: -22px;
-      height: 20px;
-      width: 20px;
-      display: flex;
-      top: 10%;
-      color: transparent;
-      align-items: center;
-    }
-  }
   blockquote {
     background-color: #f8fafc;
     border-color: theme('colors.gray-200');
 
-    a {
-      font-weight: 500;
-    }
-
     p {
       margin-bottom: 0;
+
+      a {
+        color: #2779bd;
+        text-decoration: none;
+        &:hover {
+          color: #2779bd;
+          text-decoration: underline;
+        }
+
+        &.anchor-link {
+          display: inline-block;
+          height: 100%;
+          position: absolute;
+          margin-left: -22px;
+          height: 20px;
+          width: 20px;
+          display: flex;
+          top: 10%;
+          color: transparent;
+          align-items: center;
+        }
+      }
     }
 
     ul {
@@ -82,14 +80,10 @@
     }
     &.warning {
       border-left-width: 0;
-      background-color: #f6993f;
-      border-color: #de751f;
       color: #fff;
+      background-color: #de751f;
       a {
         color: #fff;
-      }
-      .flag, pre, code {
-        background-color: #de751f;
       }
     }
   }

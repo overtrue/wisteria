@@ -1,4 +1,4 @@
-<div class="relative mr-6 my-2">
+<div class="relative">
     <input class="bg-gray-100 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-800 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="search-input" type="text" placeholder="{{ config('wisteria.plugins.docsearch.placeholder') }}">
     <div class="absolute right-0 top-0 mt-3 mr-4 text-gray-600">
         <svg version="1.1" class="h-4 text-gray-800" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

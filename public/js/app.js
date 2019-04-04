@@ -29471,9 +29471,8 @@ function () {
       };
       var content = document.querySelector('#content');
       new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__["default"]('#sidebar .docs-index', options);
-      var ps = new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__["default"](content, options);
-      content.addEventListener('ps-scroll-y', function () {
-        return _this.handleAnchorLinkActiveStatus(ps);
+      content.addEventListener('scroll', function () {
+        return _this.handleAnchorLinkActiveStatus();
       });
     }
   }, {
@@ -29496,13 +29495,13 @@ function () {
     }
   }, {
     key: "handleAnchorLinkActiveStatus",
-    value: function handleAnchorLinkActiveStatus(scrollbar) {
+    value: function handleAnchorLinkActiveStatus() {
       var _this2 = this;
 
       document.querySelectorAll("#content a.anchor-link").forEach(function (anchor) {
         var anchorPosition = anchor.getBoundingClientRect();
 
-        if (anchorPosition.top <= scrollbar.lastScrollTop && Math.abs(scrollbar.lastScrollTop - anchorPosition.top) <= window.screen.height * 300) {
+        if (anchorPosition.top > 0 && anchorPosition.top <= 150) {
           _this2.setCurrentAnchor(anchor.hash);
         }
       });

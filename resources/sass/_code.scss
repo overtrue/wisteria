@@ -75,9 +75,7 @@ blockquote {
     }
     }
     div {
-      padding: 1rem .75rem .5rem;
-      border-top-left-radius: .25rem;
-      border-bottom-left-radius: .25rem;
+      padding: 1rem .5rem;
       display: none;
     }
     p {
@@ -375,7 +373,8 @@ pre.line-numbers > code {
 
   /* Code blocks */
   pre[class*="language-"] {
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
     border-radius: 0.3em;
   }
 

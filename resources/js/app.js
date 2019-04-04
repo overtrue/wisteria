@@ -92,8 +92,7 @@ class Wisteria {
     let content = document.querySelector('#content')
 
     new PerfectScrollbar('#sidebar .docs-index', options)
-    let ps = new PerfectScrollbar(content, options)
-    content.addEventListener('ps-scroll-y', () => this.handleAnchorLinkActiveStatus(ps))
+    content.addEventListener('scroll', () => this.handleAnchorLinkActiveStatus())
   }
 
   activateCurrentSection() {
@@ -113,14 +112,11 @@ class Wisteria {
     }
   }
 
-  handleAnchorLinkActiveStatus(scrollbar) {
+  handleAnchorLinkActiveStatus() {
     document.querySelectorAll(`#content a.anchor-link`).forEach(anchor => {
       let anchorPosition = anchor.getBoundingClientRect()
 
-      if (
-        anchorPosition.top <= scrollbar.lastScrollTop &&
-        Math.abs(scrollbar.lastScrollTop - anchorPosition.top) <= window.screen.height * 300
-      ) {
+      if (anchorPosition.top > 0 && anchorPosition.top <= 150) {
         this.setCurrentAnchor(anchor.hash)
       }
     })
