@@ -9,7 +9,7 @@
         <div class="mb-6">
             @include('wisteria::ads.before-content')
         </div>
-        <article id="content" class="h-full w-full pt-10">
+        <article id="content" class="w-full pt-10">
             @if(!!$title)
             <div class="flex justify-between border-b pb-6 mb-6 border-gray-300">
                 <div class="border-l-4 border-gray-600 pl-4">
