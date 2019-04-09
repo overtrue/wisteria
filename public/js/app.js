@@ -30561,8 +30561,8 @@ function () {
         };
         icons.note = icons.info;
         icons.tips = icons.warning;
-        blockquote.innerHTML = "<div class=\"flag text-blue-400\"><span class=\"svg\">".concat(icons[icon], "</span></div><div>").concat(blockquote.innerHTML.replace(/\{(.*?)\}/, ''), "</div>");
-        blockquote.classList.add(icon, 'rounded-0', 'bg-blue-100', 'border-l-4', 'border-blue-400', 'text-blue-900');
+        blockquote.innerHTML = "<div class=\"flag flex-1 text-blue-400 pr-2\"><span class=\"svg\">".concat(icons[icon], "</span></div><div>").concat(blockquote.innerHTML.replace(/\{(.*?)\}/, ''), "</div>");
+        blockquote.classList.add(icon, 'flex', 'rounded-0', 'bg-blue-100', 'border-l-4', 'border-blue-400', 'text-blue-900');
       });
     }
   }]);
@@ -30782,8 +30782,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/artisan/www/wisteria/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/artisan/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/overtrue/www/wisteria/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/overtrue/www/wisteria/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

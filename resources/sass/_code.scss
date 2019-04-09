@@ -43,18 +43,12 @@ blockquote, pre {
 }
 
 blockquote {
-  display: flex;
   border-left: 4px solid theme('colors.gray.400');
-  > {
-    :not(.flag) {
-      flex-grow: 1;
-    }
-    div {
-      padding: 0 .5rem;
-      display: none;
-    }
-    p {
-      margin-bottom: 0;
+  p {
+    margin-bottom: 0;
+
+    + p {
+      margin-top: 0.2rem;
     }
   }
 }

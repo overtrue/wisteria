@@ -193,11 +193,11 @@ class Wisteria {
       icons.note = icons.info
       icons.tips = icons.warning
 
-      blockquote.innerHTML = `<div class="flag text-blue-400"><span class="svg">${icons[icon]}</span></div><div>${blockquote.innerHTML.replace(
+      blockquote.innerHTML = `<div class="flag flex-1 text-blue-400 pr-2"><span class="svg">${icons[icon]}</span></div><div>${blockquote.innerHTML.replace(
         /\{(.*?)\}/,
         '',
       )}</div>`
-      blockquote.classList.add(icon, 'rounded-0', 'bg-blue-100', 'border-l-4', 'border-blue-400','text-blue-900')
+      blockquote.classList.add(icon, 'flex', 'rounded-0', 'bg-blue-100', 'border-l-4', 'border-blue-400','text-blue-900')
     })
   }
 }
