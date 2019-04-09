@@ -6,10 +6,10 @@
     @include('wisteria::partials.sidebar')
     @include('wisteria::ads.before-sidebar')
     <div class="markdown-body mx-20 relative flex-1">
-        <div class="mb-6">
+        <div class="my-6">
             @include('wisteria::ads.before-content')
         </div>
-        <article id="content" class="w-full pt-10">
+        <article id="content" class="w-full">
             @if(!!$title)
             <div class="flex justify-between border-b pb-6 mb-6 border-gray-300">
                 <div class="border-l-4 border-gray-600 pl-4">
