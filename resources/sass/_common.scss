@@ -37,36 +37,27 @@ li {
   height: 100%;
 }
 
-::-webkit-scrollbar-track
-{
-  border-radius: 6px;
-  background-color: transparent;
+.max-w-screen-xl {
+  max-width: 1280px;
 }
 
-::-webkit-scrollbar
-{
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-thumb
-{
-  border-radius: 10px;
-  background-color: rgba(#1a202c, .4);
-}
-
-@each $height in 1, 2, 3, 4, 6, 8, 12, 14 {
-  .top-#{$height} {
-    top: #{$height}rem;
+@responsive {
+  .top-16 {
+    top: 4rem;
   }
-
-  .bottom-#{$height} {
-    bottom: #{$height}rem;
+  .top-28 {
+    top: 7rem;
   }
 }
 
-@media (min-width: 576px) {
-  blockquote > div {
-    display: block;
+@supports (position: sticky) {
+  @media (min-width: theme('screens.lg')) {
+    .sticky\?lg\:h-\(screen-16\) {
+      height: calc(100vh - 4rem);
+    }
+
+    .sticky\?lg\:h-\(screen-28\) {
+      height: calc(100vh - 7rem);
+    }
   }
 }

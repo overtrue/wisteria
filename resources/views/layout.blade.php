@@ -7,10 +7,10 @@
     @include('wisteria::plugins.google-analytics')
     @stack('header-script')
 </head>
-<body class="flex flex-1 text-gray-900">
+<body class="flex flex-col text-gray-900">
 <div id="app" class="flex flex-col flex-1 h-full">
     @include('wisteria::partials.header')
-    <div class="flex-1 mt-16">
+    <div class="w-full max-w-screen-xl mx-auto mt-16">
         @yield('content')
     </div>
 </div>

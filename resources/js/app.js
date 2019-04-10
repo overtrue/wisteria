@@ -1,7 +1,6 @@
 window.Vue = require('vue')
 
 import docsearch from 'docsearch.js/dist/cdn/docsearch.js'
-import PerfectScrollbar from 'perfect-scrollbar'
 import ClipboardJS from 'clipboard'
 
 window.Prism = require('prismjs')
@@ -31,11 +30,20 @@ class Wisteria {
   constructor() {
     this.initVueInstances()
     this.reformatContent()
-    this.createSmoothScrollbar()
     this.initDocSearch()
     this.activateCurrentSection()
     document.addEventListener('scroll', () => this.handleAnchorLinkActiveStatus())
+    document.querySelector('#nav-open').addEventListener('click', this.toggleSidebar)
+    document.querySelector('#nav-close').addEventListener('click', this.toggleSidebar)
     setTimeout(this.formatPreBlock, 1000)
+  }
+
+  toggleSidebar() {
+    document.querySelector('#app').classList.toggle('sidebar-expanded')
+    document.querySelector('#sidebar').classList.toggle('hidden')
+    document.querySelector('#nav-open').classList.toggle('hidden')
+    document.querySelector('#nav-close').classList.toggle('hidden')
+    document.querySelector('#docs-content').classList.toggle('overflow-hidden')
   }
 
   initVueInstances() {
@@ -106,27 +114,16 @@ class Wisteria {
     })
   }
 
-  createSmoothScrollbar() {
-    let options = {
-      wheelSpeed: 2,
-      suppressScrollX: false,
-      wheelPropagation: true,
-      minScrollbarLength: 20,
-    }
-
-    new PerfectScrollbar('#sidebar .sidebar-inner', options)
-  }
-
   activateCurrentSection() {
-    let nav = document.querySelector('#sidebar .sidebar-inner')
+    let nav = document.querySelector('#sidebar nav')
     let current = nav.querySelector('ul li a[href="' + WITERIA_FULL_URL + '"]')
 
-    nav.querySelectorAll('ul li a').forEach(li => {
-      li.classList.add('px-4', 'py-1', 'block', '-ml-4')
+    nav.querySelectorAll('h2').forEach(h2 => {
+      h2.classList.add('bg-white')
     })
 
     if (current) {
-      current.classList.add('is-active', 'bg-white', 'border', 'border-r-0', 'py-2')
+      current.classList.add('is-active', 'bg-gray-200', 'text-gray-900', 'rounded')
       current.parentElement.classList.add('is-active')
     }
     if (current.getBoundingClientRect().top >= window.screen.height * 0.4) {

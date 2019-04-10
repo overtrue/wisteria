@@ -1,5 +1,5 @@
-<div class="hidden pt-4 pr-4 xl:flex flex-col xl:w-1/5 text-sm items-stretch lg:block">
-    <div class="top-4 max-h-screen overflow-y-auto lg:sticky">
+<div class="hidden xl:text-sm xl:block xl:w-1/4 xl:px-6">
+    <div class="top-4 flex flex-col justify-between overflow-y-auto sticky top-16 max-h-(screen-16) pt-6 pb-4 -mt-12">
         @include('wisteria::ads.before-toc')
         <div id="toc" class="w-full text-sm border-l pl-4 my-6">
             <div class="flex items-center text-gray-500 uppercase">
