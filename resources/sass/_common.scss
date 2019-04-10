@@ -17,7 +17,7 @@ a {
 h1, h2, h3, h4 {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 p, ul {
@@ -40,19 +40,19 @@ li {
 ::-webkit-scrollbar-track
 {
   border-radius: 6px;
-  background-color: #F5F5F5;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar
 {
   width: 6px;
-  background-color: #F5F5F5;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-thumb
 {
   border-radius: 10px;
-  background-color: #555;
+  background-color: rgba(#1a202c, .4);
 }
 
 @each $height in 1, 2, 3, 4, 6, 8, 12, 14 {
