@@ -74,17 +74,21 @@ class RefreshCommand extends Command
         $versionDirectory = \sprintf('%s/%s', \base_path(config('wisteria.docs.path')), $version);
         $workDirectory = \base_path();
 
+        $this->info(\sprintf('======== Working version: %s =======', $version));
+
         if (!$this->filesystem->exists($versionDirectory)) {
+            $this->info('Cloning...');
             $command = \sprintf('git clone -b %s %s %s/%s', $version, $this->repository['url'], ltrim(\config('wisteria.docs.path'), '/'), $version);
         } else {
             $workDirectory = $versionDirectory;
+            $this->info('Pulling...');
             $command = \sprintf('git reset --hard; git pull');
         }
 
         $process = new Process($command);
         $process->setWorkingDirectory($workDirectory);
 
-        $this->line(\sprintf('Executing git command: %s', $command));
+        $this->info(\sprintf('> %s', $command));
 
         $process->enableOutput();
 
