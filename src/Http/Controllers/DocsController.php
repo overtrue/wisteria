@@ -11,6 +11,8 @@
 namespace Overtrue\Wisteria\Http\Controllers;
 
 use Carbon\Carbon;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Gate;
 use Overtrue\Wisteria\Documentation;
 use Overtrue\Wisteria\Exceptions\PageNotFoundException;
 use Symfony\Component\DomCrawler\Crawler;
@@ -20,6 +22,8 @@ use Symfony\Component\DomCrawler\Crawler;
  */
 class DocsController
 {
+    use AuthorizesRequests;
+
     /**
      * @var \Overtrue\Wisteria\Documentation
      */
@@ -46,6 +50,10 @@ class DocsController
     public function show($version, $page = null)
     {
         $page = $page ?? \config('wisteria.docs.index');
+
+        if (Gate::has('wisteria.view')) {
+            $this->authorize('wisteria.view', [$page, $version]);
+        }
 
         $updatedAt = Carbon::parse(date('c', filemtime($this->docs->path($version, $page))))
             ->setTimezone(config('wisteria.date.timezone', 'UTC'))

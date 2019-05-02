@@ -37,7 +37,7 @@ class WisteriaServiceProvider extends ServiceProvider
     {
         $this->bindContracts();
         $this->mergeConfigFrom(
-            __DIR__.'/../config/wisteria.php', 'wisteria'
+            __DIR__ . '/../config/wisteria.php', 'wisteria'
         );
     }
 
@@ -47,7 +47,8 @@ class WisteriaServiceProvider extends ServiceProvider
             return;
         }
 
-        Route::namespace(__NAMESPACE__.'\Http\Controllers')
+        Route::namespace(__NAMESPACE__ . '\Http\Controllers')
+            ->middleware(config('wisteria.middleware', []))
             ->group(function () {
                 $route = config('wisteria.route', 'docs');
 
@@ -72,62 +73,62 @@ class WisteriaServiceProvider extends ServiceProvider
     protected function registerAssets(): void
     {
         $this->publishes([
-            __DIR__.'/../public' => public_path('vendor/wisteria'),
+            __DIR__ . '/../public' => public_path('vendor/wisteria'),
         ], 'wisteria-assets');
     }
 
     protected function registerViews(): void
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'wisteria');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'wisteria');
 
         // all
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/wisteria'),
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/wisteria'),
         ], 'wisteria-views');
 
         // ads
         $this->publishes([
-            __DIR__.'/../resources/views/ads' => resource_path('views/vendor/wisteria/ads'),
+            __DIR__ . '/../resources/views/ads' => resource_path('views/vendor/wisteria/ads'),
         ], 'wisteria-views-ads');
 
         // partials
         $this->publishes([
-            __DIR__.'/../resources/views/partials' => resource_path('views/vendor/wisteria/partials'),
+            __DIR__ . '/../resources/views/partials' => resource_path('views/vendor/wisteria/partials'),
         ], 'wisteria-views-partials');
 
         // plugins
         $this->publishes([
-            __DIR__.'/../resources/views/plugins' => resource_path('views/vendor/wisteria/plugins'),
+            __DIR__ . '/../resources/views/plugins' => resource_path('views/vendor/wisteria/plugins'),
         ], 'wisteria-views-plugins');
 
         // errors
         $this->publishes([
-            __DIR__.'/../resources/views/plugins' => resource_path('views/vendor/wisteria/errors'),
+            __DIR__ . '/../resources/views/plugins' => resource_path('views/vendor/wisteria/errors'),
         ], 'wisteria-views-errors');
 
         // docs
         $this->publishes([
-            __DIR__.'/../resources/views/docs.blade.php' => resource_path('views/vendor/wisteria/docs.blade.php'),
+            __DIR__ . '/../resources/views/docs.blade.php' => resource_path('views/vendor/wisteria/docs.blade.php'),
         ], 'wisteria-views-docs');
 
         // layout
         $this->publishes([
-            __DIR__.'/../resources/views/layout.blade.php' => resource_path('views/vendor/wisteria/layout.blade.php'),
+            __DIR__ . '/../resources/views/layout.blade.php' => resource_path('views/vendor/wisteria/layout.blade.php'),
         ], 'wisteria-views-layout');
     }
 
     protected function registerTranslations(): void
     {
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'wisteria');
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'wisteria');
         $this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/wisteria'),
+            __DIR__ . '/../resources/lang' => resource_path('lang/vendor/wisteria'),
         ], 'wisteria-lang');
     }
 
     protected function registerConfig(): void
     {
         $this->publishes([
-            __DIR__.'/../config/wisteria.php' => \config_path('wisteria.php'),
+            __DIR__ . '/../config/wisteria.php' => \config_path('wisteria.php'),
         ], 'wisteria-config');
     }
 
