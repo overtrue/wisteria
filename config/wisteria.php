@@ -21,8 +21,8 @@ return [
 
         // Docs repository
         'repository' => [
-            'provider' => 'github',
-            'url' => 'https://github.com/overtrue/wisteria',
+            //'provider' => 'github',
+            //'url' => 'https://github.com/overtrue/wisteria',
         ],
     ],
 

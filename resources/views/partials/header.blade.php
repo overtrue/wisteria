@@ -4,9 +4,9 @@
             <a href="{{ url('/') }}" class="block h-full flex items-center ml-4">
                 <img src="{{ asset(config('wisteria.ui.logo')) }}" alt="Logo" style="height: 30px"/>
             </a>
-            <div class="hidden lg:block">
-                <dark-mode-switcher class="ml-4"></dark-mode-switcher>
-            </div>
+{{--            <div class="hidden lg:block">--}}
+{{--                <dark-mode-switcher class="ml-4"></dark-mode-switcher>--}}
+{{--            </div>--}}
         </div>
         @if(count(config('wisteria.ui.nav-links', [])) > 0)
             <div class="nav-links hidden lg:flex flex-1 items-center max-w-3xl lg:ml-0 lg:mr-auto xl:mx-0 xl:px-12 xl:w-3/4">
