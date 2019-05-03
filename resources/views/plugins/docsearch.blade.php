@@ -9,7 +9,7 @@
 </div>
 @push('footer-prepend-script')
     <script>
-        var WISTERIA_DOCS_DOCSEARCH_API_KEY =  '{{ config('wisteria.plugins.docsearch.api_key') }}'
-        var WISTERIA_DOCS_DOCSEARCH_INDEX_NAME = '{{ config('wisteria.plugins.docsearch.index_name') }}'
+        var WISTERIA_ALGOLIA_API_KEY =  '{{ config('wisteria.plugins.docsearch.api_key') }}'
+        var WISTERIA_ALGOLIA_INDEX_NAME = '{{ config('wisteria.plugins.docsearch.index_name') }}'
     </script>
 @endpush

@@ -30,12 +30,17 @@ class Wisteria {
   constructor() {
     this.initVueInstances()
     this.reformatContent()
-    this.initDocSearch()
     this.activateCurrentSection()
+
     document.addEventListener('scroll', () => this.handleAnchorLinkActiveStatus())
     document.querySelector('#nav-open').addEventListener('click', this.toggleSidebar)
     document.querySelector('#nav-close').addEventListener('click', this.toggleSidebar)
+
     setTimeout(this.formatPreBlock, 1000)
+
+    if (window[WISTERIA_ALGOLIA_API_KEY] && window[WISTERIA_ALGOLIA_INDEX_NAME]) {
+      this.initDocSearch()
+    }
   }
 
   toggleSidebar() {
@@ -116,7 +121,7 @@ class Wisteria {
 
   activateCurrentSection() {
     let nav = document.querySelector('#sidebar nav')
-    let current = nav.querySelector('ul li a[href="' + WITERIA_FULL_URL + '"]')
+    let current = nav.querySelector('ul li a[href="' + WISTERIA_FULL_URL + '"]')
 
     nav.querySelectorAll('h2').forEach(h2 => {
       h2.classList.add('bg-white')
@@ -158,8 +163,8 @@ class Wisteria {
   initDocSearch() {
     docsearch({
       // Your apiKey and indexName will be given to you once
-      apiKey: WISTERIA_DOCS_DOCSEARCH_API_KEY,
-      indexName: WISTERIA_DOCS_DOCSEARCH_INDEX_NAME,
+      apiKey: WISTERIA_ALGOLIA_API_KEY,
+      indexName: WISTERIA_ALGOLIA_INDEX_NAME,
       // Replace inputSelector with a CSS selector
       // matching your search input
       inputSelector: '#search-input',

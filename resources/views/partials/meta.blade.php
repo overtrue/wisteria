@@ -29,5 +29,5 @@
 <script>
     var WISTERIA_DOCS_PAGE = '{{ $page }}'
     var WISTERIA_DOCS_CURRENT_VERSION = '{{ $currentVersion }}'
-    var WITERIA_FULL_URL = '{{ $fullUrl }}'
+    var WISTERIA_FULL_URL = '{{ $fullUrl }}'
 </script>

@@ -7,23 +7,24 @@
     "watch-poll": "npm run watch -- --watch-poll",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^1.2.0",
     "clipboard": "^2.0.4",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "docsearch.js": "^2.6.2",
     "laravel-mix": "^4.0.14",
     "localforage": "^1.7.3",
-    "perfect-scrollbar": "^1.4.0",
     "popper.js": "^1.14.7",
     "prismjs": "^1.15.0",
     "resolve-url-loader": "2.3.1",
     "sass": "^1.17.2",
     "sass-loader": "^7.1.0",
-    "tailwindcss": "^1.0.0-beta.3",
+    "tailwindcss": "^1.0.0-beta.8",
     "vue": "^2.6.7",
+    "vue-loader": "^15.7.0",
     "vue-template-compiler": "^2.6.7"
   }
 }
