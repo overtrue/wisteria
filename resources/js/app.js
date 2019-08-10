@@ -106,7 +106,7 @@ class Wisteria {
                         </g>
                     </svg>`
 
-    content.querySelectorAll('pre,blockquote').forEach(pre => {
+    this.content.querySelectorAll('pre,blockquote').forEach(pre => {
       pre.outerHTML = `<div class="pre-block relative">
                         <a class="copy-btn p-2 absolute top-0 right-0 cursor-pointer z-20" aria-label="copy">${copyIcon}</a>
                         ${pre.outerHTML}

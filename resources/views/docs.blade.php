@@ -13,7 +13,9 @@
                 <article id="content" class="w-full">
                     @include('wisteria::partials.content-header')
 
-                    {!! $content !!}
+                    <div v-pre>
+                        {!! $content !!}
+                    </div>
 
                     <footer class="border-t py-4 mt-6">
                         @include('wisteria::partials.footer')
