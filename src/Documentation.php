@@ -65,7 +65,7 @@ class Documentation
                 $homepage = \config('wisteria.docs.index', \config('wisteria.docs.home', 'README.md'));
 
                 if ($this->has($version, $homepage)) {
-                    return $this->replaceLinks($version, (new Crawler($this->get($version, $homepage)))->filter('ul')->html());
+                    return $this->replaceLinks($version, (new Crawler($this->get($version, $homepage)))->filter('ul')->html(''));
                 }
 
                 return null;
