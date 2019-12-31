@@ -10,7 +10,7 @@
     ],
     "require": {
         "laravel/framework": "^6.0",
-        "erusev/parsedown-extra": "^0.7.1",
+        "erusev/parsedown-extra": "^0.8.1",
         "symfony/dom-crawler": "^5.0",
         "overtrue/laravel-emoji": "^1.1"
     },
