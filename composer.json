@@ -9,8 +9,8 @@
         }
     ],
     "require": {
-        "laravel/framework": "^5.5",
-        "symfony/dom-crawler": "^4.2",
+        "laravel/framework": "^6.0",
+        "symfony/dom-crawler": "^5.0",
         "overtrue/laravel-emoji": "^1.1",
         "erusev/parsedown": "^1.7"
     },
