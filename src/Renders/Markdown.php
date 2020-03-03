@@ -12,6 +12,7 @@ namespace Overtrue\Wisteria\Renders;
 
 use Overtrue\LaravelEmoji\Emoji;
 use Overtrue\Wisteria\Contracts\Renderer;
+use Parsedown;
 
 /**
  * Class Markdown.
@@ -19,16 +20,16 @@ use Overtrue\Wisteria\Contracts\Renderer;
 class Markdown implements Renderer
 {
     /**
-     * @var \ParsedownExtra
+     * @var \Parsedown
      */
     protected $markdown;
 
     /**
      * Markdown constructor.
      *
-     * @param \ParsedownExtra $markdown
+     * @param \Parsedown $markdown
      */
-    public function __construct(\ParsedownExtra $markdown)
+    public function __construct(\Parsedown $markdown)
     {
         $this->markdown = $markdown;
     }
