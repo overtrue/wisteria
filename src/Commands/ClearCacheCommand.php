@@ -35,6 +35,7 @@ class ClearCacheCommand extends Command
      */
     public function handle()
     {
+        $this->call('cache:clear');
         $this->info('Wisteria cache cleared.');
     }
 }
