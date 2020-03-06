@@ -85,7 +85,7 @@ class RefreshCommand extends Command
             $command = \sprintf('git reset --hard; git pull');
         }
 
-        $process = new Process($command);
+        $process = new Process([$command]);
         $process->setWorkingDirectory($workDirectory);
 
         $this->info(\sprintf('> %s', $command));
