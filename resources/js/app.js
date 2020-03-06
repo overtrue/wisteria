@@ -38,7 +38,7 @@ class Wisteria {
 
     setTimeout(this.formatPreBlock, 1000)
 
-    if (window[WISTERIA_ALGOLIA_API_KEY] && window[WISTERIA_ALGOLIA_INDEX_NAME]) {
+    if (window['WISTERIA_ALGOLIA_API_KEY'] && window['WISTERIA_ALGOLIA_INDEX_NAME']) {
       this.initDocSearch()
     }
   }
