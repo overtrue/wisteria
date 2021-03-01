@@ -18,7 +18,7 @@
     "laravel-mix": "^4.0.14",
     "localforage": "^1.7.3",
     "popper.js": "^1.14.7",
-    "prismjs": "^1.15.0",
+    "prismjs": "^1.23.0",
     "resolve-url-loader": "2.3.1",
     "sass": "^1.17.2",
     "sass-loader": "^7.1.0",
