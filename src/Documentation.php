@@ -66,7 +66,7 @@ class Documentation
 
                 if ($this->has($version, $homepage)) {
                     $crawler = new Crawler($this->get($version, $homepage));
-                    $crawler->filter('body a[href$=".md"]')->each(
+                    $crawler->filter('body a')->each(
                         function (Crawler $c) use ($version) {
                             foreach ($c as $node) {
                                 $node->setAttribute(
