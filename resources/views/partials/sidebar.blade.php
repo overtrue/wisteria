@@ -9,7 +9,7 @@
                         </div>
                     @else
                         <a class="px-2 py-1 mx-1 bg-gray-200 text-sm text-gray-700 rounded border hover:border-gray-400 hover:text-gray-800"
-                           href="{{ route('wisteria.docs.show', [$version, $page]) }}">
+                           href="{{ route('wisteria.docs.show', [$version, '/']) }}">
                             {{ $version }}
                         </a>
                     @endif

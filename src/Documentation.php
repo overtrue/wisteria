@@ -116,7 +116,7 @@ class Documentation
      *
      * @return resource|null
      *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \Overtrue\Wisteria\Exceptions\PageNotFoundException
      */
     public function content(string $version, string $page)
     {
