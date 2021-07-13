@@ -68,7 +68,7 @@ class DocsController
             'updatedAt' => $updatedAt,
             'fullUrl' => \sprintf('%s/%s/%s', \config('wisteria.route'), $version, $page),
             'editUrl' => \sprintf('%s/edit/%s/%s.md', \config('wisteria.docs.repository.url'), $version, $page),
-            'canonical' => sprintf('%/%s/%s', config('wisteria.docs.path'), config('wisteria.docs.default_version'), $page),
+            'canonical' => sprintf('%s/%s/%s', config('wisteria.docs.path'), config('wisteria.docs.default_version'), $page),
         ];
 
         try {
