@@ -66,18 +66,8 @@ class Documentation
 
                 if ($this->has($version, $homepage)) {
                     $crawler = new Crawler($this->get($version, $homepage));
-                    $crawler->filter('body a')->each(
-                        function (Crawler $c) use ($version) {
-                            foreach ($c as $node) {
-                                $node->setAttribute(
-                                    'href',
-                                    \str_replace([\urlencode('{{version}}'), '.md'], [$version, ''], $node->getAttribute('href'))
-                                );
-                            }
-                        }
-                    );
 
-                    return $crawler->filter('ul')->html();
+                    return $this->replaceLinks($version, $crawler->filter('ul')->html());
                 }
 
                 return null;
@@ -128,7 +118,7 @@ class Documentation
             \sprintf('docs.%s.%s', $version, $page),
             config('wisteria.cache.ttl'),
             function () use ($version, $page) {
-                return $this->filesystem->get($this->path($version, $page));
+                return $this->replaceLinks($version, $this->filesystem->get($this->path($version, $page)));
             }
         );
     }
@@ -141,10 +131,8 @@ class Documentation
      */
     public function replaceLinks(string $version, string $content)
     {
-        $replacements = [
-            \urlencode('{{version}}') => $version,
-        ];
+        $content = \str_replace([\urlencode('{{version}}'), '{{version}}'], $version, $content);
 
-        return str_replace(\array_keys($replacements), $replacements, $content);
+        return preg_replace(['~href="(.*?)\.md"~', '~\((.*?)\.md\)~'], ['href="$1"', '($1)'], $content);
     }
 }

@@ -58,7 +58,7 @@ class RefreshCommand extends Command
      */
     public function handle()
     {
-        if (!\config('wisteria.docs.repository.url')) {
+        if (\config('wisteria.docs.repository.url')) {
             $versions = config('wisteria.docs.versions');
 
             foreach ($versions as $version) {
@@ -78,20 +78,21 @@ class RefreshCommand extends Command
 
         if (!$this->filesystem->exists($versionDirectory)) {
             $this->info('Cloning...');
-            $command = \sprintf('git clone -b %s %s %s/%s', $version, $this->repository['url'], ltrim(\config('wisteria.docs.path'), '/'), $version);
+            $process = new Process(
+                ['git', 'clone', '-b', $version, $this->repository['url'], join('/', ltrim(\config('wisteria.docs.path'), '/'), $version)]
+            );
         } else {
             $workDirectory = $versionDirectory;
             $this->info('Pulling...');
-            $command = \sprintf('git reset --hard; git pull');
+            (new Process(['git', 'reset', '--hard']))->run();
+            $process = new Process(['git', 'pull']);
         }
 
-        $process = new Process([$command]);
         $process->setWorkingDirectory($workDirectory);
-        $this->info(\sprintf('> %s', $command));
+        $this->info(\sprintf('> %s', $process->getCommandLine()));
 
         $process->enableOutput();
 
         $process->run();
-
     }
 }
