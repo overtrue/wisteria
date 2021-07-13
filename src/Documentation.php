@@ -65,17 +65,26 @@ class Documentation
                 $homepage = \config('wisteria.docs.index', \config('wisteria.docs.home', 'README.md'));
 
                 if ($this->has($version, $homepage)) {
-                    return $this->replaceLinks($version, (new Crawler($this->get($version, $homepage)))->filter('ul')->html(''));
+                    $crawler = new Crawler($this->get($version, $homepage));
+                    $crawler->filter('body a[href$=".md"]')->each(
+                        function (Crawler $c) use ($version) {
+                            foreach ($c as $node) {
+                                $node->setAttribute(
+                                    'href',
+                                    \str_replace([\urlencode('{{version}}'), '.md'], [$version, ''], $node->getAttribute('href'))
+                                );
+                            }
+                        }
+                    );
+
+                    return $crawler->filter('ul')->html();
                 }
 
                 return null;
-            });
+            }
+        );
     }
 
-    /**
-     * @param string $version
-     * @param string $page
-     */
     public function get(string $version, string $page)
     {
         if (!$this->has($version, $page)) {
@@ -85,16 +94,13 @@ class Documentation
         return $this->renderer->render($this->content($version, $page));
     }
 
-    /**
-     * @param string $version
-     * @param string $page
-     */
     public function has(string $version, string $page)
     {
         return $this->filesystem->exists($this->path($version, $page));
     }
 
     /**
+     * @param string $version
      * @param string $page
      *
      * @return string
@@ -119,11 +125,12 @@ class Documentation
         }
 
         return $this->cache->remember(
-                \sprintf('docs.%s.%s', $version, $page),
-                config('wisteria.cache.ttl'),
-                function () use ($version, $page) {
-                    return $this->filesystem->get($this->path($version, $page));
-                });
+            \sprintf('docs.%s.%s', $version, $page),
+            config('wisteria.cache.ttl'),
+            function () use ($version, $page) {
+                return $this->filesystem->get($this->path($version, $page));
+            }
+        );
     }
 
     /**
@@ -134,6 +141,10 @@ class Documentation
      */
     public function replaceLinks(string $version, string $content)
     {
-        return str_replace(\urlencode('{{version}}'), $version, $content);
+        $replacements = [
+            \urlencode('{{version}}') => $version,
+        ];
+
+        return str_replace(\array_keys($replacements), $replacements, $content);
     }
 }

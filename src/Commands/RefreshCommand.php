@@ -58,7 +58,7 @@ class RefreshCommand extends Command
      */
     public function handle()
     {
-        if (!\config('wisteria.docs.repostory.url')) {
+        if (!\config('wisteria.docs.repository.url')) {
             $versions = config('wisteria.docs.versions');
 
             foreach ($versions as $version) {
@@ -87,11 +87,11 @@ class RefreshCommand extends Command
 
         $process = new Process([$command]);
         $process->setWorkingDirectory($workDirectory);
-
         $this->info(\sprintf('> %s', $command));
 
         $process->enableOutput();
 
         $process->run();
+
     }
 }
